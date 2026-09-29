@@ -358,9 +358,9 @@ function ReportFlow({ onExit }) {
   const redFlagTriggered = Object.values(redFlags).some(v => v === 'yes');
 
   const results = useMemo(() => {
-    if (!sport || redFlagTriggered) return [];
+    if (!sport) return [];
     return scoreInjuries({ sport, moveId, bodyPart, symptoms });
-  }, [sport, moveId, bodyPart, symptoms, redFlagTriggered]);
+  }, [sport, moveId, bodyPart, symptoms]);
 
   const tierKey = useMemo(() => {
     if (!sport) return null;
@@ -417,10 +417,7 @@ function ReportFlow({ onExit }) {
               </Card>
             ))}
           </div>
-          <PrimaryButton full disabled={!allRedFlagsAnswered} onClick={() => {
-            if (Object.values(redFlags).some(v => v === 'yes')) setStep(4);
-            else next();
-          }}>
+          <PrimaryButton full disabled={!allRedFlagsAnswered} onClick={next}>
             Continue <ArrowRight size={15} />
           </PrimaryButton>
         </div>
@@ -533,11 +530,13 @@ function ResultsScreen({ tierKey, redFlagTriggered, results, onRestart, onExit }
         <div style={{ fontSize: 13.5, color: '#17211C', lineHeight: 1.55 }}>{tier.copy}</div>
       </div>
 
-      {!redFlagTriggered && results.length > 0 && (
+      {results.length > 0 && (
         <div style={{ marginBottom: 22 }}>
           <div style={{ fontSize: 15, fontWeight: 700, marginBottom: 3 }}>What it could be</div>
           <div style={{ fontSize: 12.5, color: '#5B6960', marginBottom: 14 }}>
-            Ranked by how well it matches what you described — not a diagnosis.
+            {redFlagTriggered
+              ? "Ranked by how well it matches what you described — not a diagnosis, and not a reason to delay the care above."
+              : 'Ranked by how well it matches what you described — not a diagnosis.'}
           </div>
           <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
             {results.map((r, idx) => (
@@ -574,7 +573,7 @@ function ResultsScreen({ tierKey, redFlagTriggered, results, onRestart, onExit }
         </div>
       )}
 
-      {!redFlagTriggered && results.length === 0 && (
+      {results.length === 0 && (
         <div style={{ fontSize: 13, color: '#5B6960', marginBottom: 22 }}>
           Nothing on file matched closely — that's not unusual, and it doesn't mean it's nothing.
           Use the guidance above either way.
