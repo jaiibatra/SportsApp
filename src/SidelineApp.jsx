@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useEffect, useRef } from 'react';
 import {
   Activity, AlertTriangle, ArrowLeft, ArrowRight, Check, ChevronRight,
   ClipboardList, History, ShieldAlert, Stethoscope, User, Zap, HeartPulse,
@@ -94,7 +94,7 @@ function dominantSeverity(injuryId) {
   return [...rows].sort((a, b) => b.frequency - a.frequency)[0];
 }
 
-function scoreInjuries({ sport, moveId, bodyPart, symptoms }) {
+function scoreInjuries({ sport, moveId, bodyParts, symptoms }) {
   const candidates = DB.injuries.filter(i => i.injury_sport === sport);
   const linkedInjuryIds = new Set(
     DB.moveInjury.filter(mi => mi.move_id === moveId).map(mi => mi.injury_id)
@@ -109,7 +109,7 @@ function scoreInjuries({ sport, moveId, bodyPart, symptoms }) {
         score += 4;
         reasons.push('Matches how this usually happens');
       }
-      if (bodyPart && inj.body_part === bodyPart) {
+      if (bodyParts && bodyParts.length > 0 && bodyParts.includes(inj.body_part)) {
         score += 3;
         reasons.push('Same body part');
       }
@@ -132,6 +132,31 @@ function scoreInjuries({ sport, moveId, bodyPart, symptoms }) {
     .sort((a, b) => b.score - a.score)
     .filter(r => r.score > 0)
     .slice(0, 4);
+}
+
+/* ---------------------------------------------------------------
+   PERSISTENCE — saved reports live in localStorage so "Past
+   history" survives a refresh (no backend yet)
+--------------------------------------------------------------- */
+const REPORTS_KEY = 'sideline_reports_v1';
+
+function getSavedReports() {
+  try {
+    const raw = window.localStorage.getItem(REPORTS_KEY);
+    return raw ? JSON.parse(raw) : [];
+  } catch {
+    return [];
+  }
+}
+
+function saveReport(record) {
+  try {
+    const existing = getSavedReports();
+    existing.unshift(record);
+    window.localStorage.setItem(REPORTS_KEY, JSON.stringify(existing));
+  } catch {
+    // localStorage unavailable (private mode, etc.) — fail silently
+  }
 }
 
 function decideTier({ redFlags, weightBearing, topMatch }) {
@@ -208,7 +233,8 @@ function Card({ children, onClick, active, style }) {
       onClick={onClick}
       className={onClick ? 'opt-btn' : ''}
       style={{
-        background: '#fff', border: `1.5px solid ${active ? '#2E5D42' : '#D7DBD0'}`,
+        background: active ? '#E4EEE6' : '#fff',
+        border: `${active ? 2 : 1.5}px solid ${active ? '#2E5D42' : '#D7DBD0'}`,
         borderRadius: 10, padding: '16px 18px', cursor: onClick ? 'pointer' : 'default',
         ...style,
       }}
@@ -272,7 +298,7 @@ function Dashboard({ onReport, onNav }) {
         <div className="display" style={{ fontSize: 34, fontWeight: 800, lineHeight: 1.05 }}>
           What's hurting, and what do you do about it.
         </div>
-        <div style={{ fontSize: 14.5, color: '#5B6960', marginTop: 8, maxWidth: 480 }}>
+        <div style={{ fontSize: 14.5, color: '#5B6960', marginTop: 8, maxWidth: 480, marginLeft: 'auto', marginRight: 'auto', textAlign: 'center' }}>
           Answer a few questions about what happened and how it feels — get a sense of
           how serious it might be and where to go next.
         </div>
@@ -338,34 +364,110 @@ function Placeholder({ title, desc, onBack }) {
 }
 
 const PLACEHOLDER_COPY = {
-  history: 'Every injury you report will be saved here, so you and your trainer can see what keeps coming back.',
   return: 'Once an injury is logged, this will track your recovery day by day against the expected timeline.',
   data: 'A body map showing where you\u2019ve been hurt over time, built from your reported injuries.',
   visits: 'A log of clinic and athletic-trainer visits tied to each reported injury.',
 };
+
+function HistoryScreen({ onBack }) {
+  const [reports, setReports] = useState(() => getSavedReports());
+
+  return (
+    <Shell>
+      <TopBar title="Past history" onBack={onBack} />
+      {reports.length === 0 ? (
+        <Card style={{ padding: '26px 20px', textAlign: 'center' }}>
+          <div style={{
+            display: 'inline-flex', width: 40, height: 40, borderRadius: '50%',
+            background: '#E9EBE4', alignItems: 'center', justifyContent: 'center', marginBottom: 12,
+          }}>
+            <Info size={18} color="#5B6960" />
+          </div>
+          <div style={{ fontSize: 14.5, fontWeight: 600, marginBottom: 4 }}>No injuries reported yet</div>
+          <div style={{ fontSize: 13.5, color: '#5B6960', maxWidth: 340, margin: '0 auto' }}>
+            Every injury you report gets saved here, so you and your trainer can see what keeps coming back.
+          </div>
+        </Card>
+      ) : (
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
+          {reports.map(r => {
+            const tier = TIERS[r.tier];
+            return (
+              <Card key={r.id} style={{ padding: '15px 16px' }}>
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline' }}>
+                  <div style={{ fontSize: 15, fontWeight: 700 }}>{r.sport}</div>
+                  <div style={{ fontSize: 11.5, color: '#5B6960' }}>
+                    {new Date(r.date).toLocaleDateString(undefined, { month: 'short', day: 'numeric', year: 'numeric' })}
+                  </div>
+                </div>
+                {r.bodyParts && r.bodyParts.length > 0 && (
+                  <div style={{ fontSize: 12, color: '#5B6960', marginTop: 2 }}>{r.bodyParts.join(', ')}</div>
+                )}
+                {r.topInjury && (
+                  <div style={{ fontSize: 13, marginTop: 8 }}>
+                    Likely: <b>{r.topInjury}</b>
+                  </div>
+                )}
+                {tier && (
+                  <div style={{
+                    display: 'inline-block', marginTop: 10, fontSize: 11, fontWeight: 700,
+                    color: tier.color, background: tier.bg, padding: '3px 10px', borderRadius: 20,
+                  }}>
+                    {tier.label}
+                  </div>
+                )}
+              </Card>
+            );
+          })}
+        </div>
+      )}
+    </Shell>
+  );
+}
 
 function ReportFlow({ onExit }) {
   const [step, setStep] = useState(0);
   const [sport, setSport] = useState(null);
   const [redFlags, setRedFlags] = useState({});
   const [moveId, setMoveId] = useState(null);
-  const [bodyPart, setBodyPart] = useState(null);
+  const [selectedBodyParts, setSelectedBodyParts] = useState([]);
   const [weightBearing, setWeightBearing] = useState(null);
   const [symptoms, setSymptoms] = useState({});
 
   const moves = useMemo(() => (sport ? movesForSport(sport) : []), [sport]);
-  const bodyParts = useMemo(() => (sport ? bodyPartsForSport(sport) : []), [sport]);
+  const bodyPartOptions = useMemo(() => (sport ? bodyPartsForSport(sport) : []), [sport]);
   const redFlagTriggered = Object.values(redFlags).some(v => v === 'yes');
 
+  const toggleBodyPart = (bp) => {
+    setSelectedBodyParts(prev => (
+      prev.includes(bp) ? prev.filter(x => x !== bp) : [...prev, bp]
+    ));
+  };
+
   const results = useMemo(() => {
-    if (!sport) return [];
-    return scoreInjuries({ sport, moveId, bodyPart, symptoms });
-  }, [sport, moveId, bodyPart, symptoms]);
+    if (!sport || redFlagTriggered) return [];
+    return scoreInjuries({ sport, moveId, bodyParts: selectedBodyParts, symptoms });
+  }, [sport, moveId, selectedBodyParts, symptoms, redFlagTriggered]);
 
   const tierKey = useMemo(() => {
     if (!sport) return null;
     return decideTier({ redFlags, weightBearing, topMatch: results[0] });
   }, [redFlags, weightBearing, results, sport]);
+
+  const savedRef = useRef(false);
+  useEffect(() => {
+    if (step === 4 && tierKey && !savedRef.current) {
+      savedRef.current = true;
+      saveReport({
+        id: Date.now(),
+        date: new Date().toISOString(),
+        sport,
+        bodyParts: selectedBodyParts,
+        tier: tierKey,
+        topInjury: results[0] ? results[0].injury_name : null,
+      });
+    }
+  }, [step, tierKey]);
 
   const STEPS = ['sport', 'redflags', 'mechanism', 'symptoms', 'results'];
   const total = STEPS.length - 1;
@@ -417,7 +519,10 @@ function ReportFlow({ onExit }) {
               </Card>
             ))}
           </div>
-          <PrimaryButton full disabled={!allRedFlagsAnswered} onClick={next}>
+          <PrimaryButton full disabled={!allRedFlagsAnswered} onClick={() => {
+            if (Object.values(redFlags).some(v => v === 'yes')) setStep(4);
+            else next();
+          }}>
             Continue <ArrowRight size={15} />
           </PrimaryButton>
         </div>
@@ -438,26 +543,30 @@ function ReportFlow({ onExit }) {
             ))}
           </div>
 
-          <div style={{ fontSize: 15, fontWeight: 600, marginBottom: 10 }}>Where does it hurt?</div>
+          <div style={{ fontSize: 15, fontWeight: 600, marginBottom: 3 }}>Where does it hurt?</div>
+          <div style={{ fontSize: 12, color: '#5B6960', marginBottom: 10 }}>You can pick more than one.</div>
           <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8, marginBottom: 22 }}>
-            {bodyParts.map(bp => (
-              <button
-                key={bp}
-                onClick={() => setBodyPart(bp)}
-                className="opt-btn"
-                style={{
-                  padding: '9px 14px', borderRadius: 20, fontSize: 13, fontWeight: 600,
-                  border: `1.5px solid ${bodyPart === bp ? '#2E5D42' : '#D7DBD0'}`,
-                  background: bodyPart === bp ? '#2E5D42' : '#fff',
-                  color: bodyPart === bp ? '#fff' : '#17211C', cursor: 'pointer',
-                }}
-              >
-                {bp}
-              </button>
-            ))}
+            {bodyPartOptions.map(bp => {
+              const isSelected = selectedBodyParts.includes(bp);
+              return (
+                <button
+                  key={bp}
+                  onClick={() => toggleBodyPart(bp)}
+                  className="opt-btn"
+                  style={{
+                    padding: '9px 14px', borderRadius: 20, fontSize: 13, fontWeight: 600,
+                    border: `1.5px solid ${isSelected ? '#2E5D42' : '#D7DBD0'}`,
+                    background: isSelected ? '#2E5D42' : '#fff',
+                    color: isSelected ? '#fff' : '#17211C', cursor: 'pointer',
+                  }}
+                >
+                  {bp}
+                </button>
+              );
+            })}
           </div>
 
-          <PrimaryButton full disabled={!moveId || !bodyPart} onClick={next}>
+          <PrimaryButton full disabled={!moveId || selectedBodyParts.length === 0} onClick={next}>
             Continue <ArrowRight size={15} />
           </PrimaryButton>
         </div>
@@ -498,8 +607,9 @@ function ReportFlow({ onExit }) {
           results={results}
           sport={sport}
           onRestart={() => {
+            savedRef.current = false;
             setStep(0); setSport(null); setRedFlags({}); setMoveId(null);
-            setBodyPart(null); setWeightBearing(null); setSymptoms({});
+            setSelectedBodyParts([]); setWeightBearing(null); setSymptoms({});
           }}
           onExit={onExit}
         />
@@ -530,13 +640,11 @@ function ResultsScreen({ tierKey, redFlagTriggered, results, onRestart, onExit }
         <div style={{ fontSize: 13.5, color: '#17211C', lineHeight: 1.55 }}>{tier.copy}</div>
       </div>
 
-      {results.length > 0 && (
+      {!redFlagTriggered && results.length > 0 && (
         <div style={{ marginBottom: 22 }}>
           <div style={{ fontSize: 15, fontWeight: 700, marginBottom: 3 }}>What it could be</div>
           <div style={{ fontSize: 12.5, color: '#5B6960', marginBottom: 14 }}>
-            {redFlagTriggered
-              ? "Ranked by how well it matches what you described — not a diagnosis, and not a reason to delay the care above."
-              : 'Ranked by how well it matches what you described — not a diagnosis.'}
+            Ranked by how well it matches what you described — not a diagnosis.
           </div>
           <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
             {results.map((r, idx) => (
@@ -573,7 +681,7 @@ function ResultsScreen({ tierKey, redFlagTriggered, results, onRestart, onExit }
         </div>
       )}
 
-      {results.length === 0 && (
+      {!redFlagTriggered && results.length === 0 && (
         <div style={{ fontSize: 13, color: '#5B6960', marginBottom: 22 }}>
           Nothing on file matched closely — that's not unusual, and it doesn't mean it's nothing.
           Use the guidance above either way.
@@ -588,7 +696,7 @@ function ResultsScreen({ tierKey, redFlagTriggered, results, onRestart, onExit }
       <div style={{ display: 'flex', gap: 10 }}>
         <button onClick={onRestart} style={{
           flex: 1, padding: '13px 0', borderRadius: 9, fontSize: 14, fontWeight: 600,
-          border: '1.5px solid #D7DBD0', background: '#fff', cursor: 'pointer',
+          border: '1.5px solid #D7DBD0', background: '#fff', color: '#17211C', cursor: 'pointer',
         }}>
           Report another
         </button>
@@ -605,8 +713,9 @@ export default function SidelineApp() {
   const [screen, setScreen] = useState('dashboard');
 
   if (screen === 'report') return <ReportFlow onExit={() => setScreen('dashboard')} />;
+  if (screen === 'history') return <HistoryScreen onBack={() => setScreen('dashboard')} />;
   if (screen in PLACEHOLDER_COPY) {
-    const titles = { history: 'Past history', return: 'Return to play', data: 'My data', visits: 'My visits' };
+    const titles = { return: 'Return to play', data: 'My data', visits: 'My visits' };
     return <Placeholder title={titles[screen]} desc={PLACEHOLDER_COPY[screen]} onBack={() => setScreen('dashboard')} />;
   }
   return <Dashboard onReport={() => setScreen('report')} onNav={setScreen} />;
