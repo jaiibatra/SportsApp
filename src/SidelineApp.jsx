@@ -5,11 +5,11 @@ import {
   Stethoscope, Trash2, User, Zap,
 } from 'lucide-react';
 
-/* ---------------------------------------------------------------
-   DATA: parsed from the team's INJURY_GENERAL / INJURY_SEVERITY /
-   MOVE / MOVE_INJURY tables (Vegas project, HW1 dataset)
---------------------------------------------------------------- */
-const DB = {"injuries":[{"injury_id":1,"injury_name":"Ankle Sprain","injury_sport":"Basketball","body_part":"Ankle","pain_location":"Around the ankle joint, most often lateral (outside)","swelling":"Yes","bruising":"Yes","instability":"Yes","limited_range_of_motion":"Yes","audible_pop":"Sometimes"},{"injury_id":2,"injury_name":"ACL Tear","injury_sport":"Basketball","body_part":"Knee","pain_location":"Deep in the knee, sometimes diffuse","swelling":"Yes","bruising":"No","instability":"Yes","limited_range_of_motion":"Yes","audible_pop":"Yes"},{"injury_id":3,"injury_name":"Meniscus Tear","injury_sport":"Basketball","body_part":"Knee","pain_location":"Joint line of the knee (inner or outer)","swelling":"Yes","bruising":"No","instability":"Yes","limited_range_of_motion":"Yes","audible_pop":"Sometimes"},{"injury_id":4,"injury_name":"Patellar Tendinitis - Jumper's Knee","injury_sport":"Basketball","body_part":"Knee","pain_location":"Just below the kneecap, at the patellar tendon","swelling":"No","bruising":"No","instability":"No","limited_range_of_motion":"Yes","audible_pop":"No"},{"injury_id":5,"injury_name":"Achilles Tendon Rupture","injury_sport":"Basketball","body_part":"Lower Calf","pain_location":"Back of the ankle/lower calf","swelling":"Yes","bruising":"Yes","instability":"Yes","limited_range_of_motion":"Yes","audible_pop":"Yes"},{"injury_id":6,"injury_name":"Finger Sprain","injury_sport":"Basketball","body_part":"Finger Joint","pain_location":"Localized to the affected finger joint","swelling":"Yes","bruising":"Yes","instability":"No","limited_range_of_motion":"Yes","audible_pop":"No"},{"injury_id":7,"injury_name":"Finger Fracture","injury_sport":"Basketball","body_part":"Finger Joint","pain_location":"Localized to the affected finger joint","swelling":"Yes","bruising":"Yes","instability":"Sometimes","limited_range_of_motion":"Yes","audible_pop":"No"},{"injury_id":8,"injury_name":"Hamstring Strain","injury_sport":"Basketball","body_part":"Hamstring","pain_location":"Back of the thigh, sudden and sharp mid-sprint","swelling":"Sometimes","bruising":"Yes","instability":"Yes","limited_range_of_motion":"Yes","audible_pop":"Sometimes"},{"injury_id":9,"injury_name":"Lower Back Strain","injury_sport":"Basketball","body_part":"Lower Back","pain_location":"Lower b ack, sometimes radiating to hip","swelling":"No","bruising":"No","instability":"No","limited_range_of_motion":"Yes","audible_pop":"No"},{"injury_id":10,"injury_name":"Concussion","injury_sport":"Basketball","body_part":"Head","pain_location":"Head/neck, may include headache","swelling":"Sometimes","bruising":"Sometimes","instability":"Yes","limited_range_of_motion":"No","audible_pop":"No"},{"injury_id":11,"injury_name":"Wrist Sprain","injury_sport":"Basketball","body_part":"Wrist","pain_location":"Localized to the wrist, sometimes radiating into the hand","swelling":"Yes","bruising":"Yes","instability":"No","limited_range_of_motion":"Yes","audible_pop":"No"},{"injury_id":12,"injury_name":"Wrist Fracture","injury_sport":"Basketball","body_part":"Wrist","pain_location":"Localized to the wrist, sometimes radiating into the hand","swelling":"Yes","bruising":"Yes","instability":"Yes","limited_range_of_motion":"Yes","audible_pop":"No"},{"injury_id":13,"injury_name":"Rotator Cuff Strain","injury_sport":"Baseball","body_part":"Shoulder","pain_location":"Front/side of shoulder, may radiate down arm","swelling":"No","bruising":"No","instability":"No","limited_range_of_motion":"Yes","audible_pop":"No"},{"injury_id":14,"injury_name":"Rotator Cuff Tear","injury_sport":"Baseball","body_part":"Shoulder","pain_location":"Front/side of shoulder, may radiate down arm","swelling":"No","bruising":"Sometimes","instability":"Yes","limited_range_of_motion":"Yes","audible_pop":"No"},{"injury_id":15,"injury_name":"UCL Sprain","injury_sport":"Baseball","body_part":"Elbow","pain_location":"Inner (medial) elbow","swelling":"No","bruising":"No","instability":"Yes","limited_range_of_motion":"No","audible_pop":"No"},{"injury_id":16,"injury_name":"UCL Tear","injury_sport":"Baseball","body_part":"Elbow","pain_location":"Inner (medial) elbow","swelling":"No","bruising":"Sometimes","instability":"Yes","limited_range_of_motion":"No","audible_pop":"Yes"},{"injury_id":17,"injury_name":"Labral Tear - Shoulder","injury_sport":"Baseball","body_part":"Shoulder","pain_location":"Deep in shoulder joint, catching sensation","swelling":"No","bruising":"No","instability":"Yes","limited_range_of_motion":"Yes","audible_pop":"Sometimes"},{"injury_id":18,"injury_name":"Oblique Strain","injury_sport":"Baseball","body_part":"Torso","pain_location":"Side of torso/ribcage, sharp and localized","swelling":"No","bruising":"Sometimes","instability":"No","limited_range_of_motion":"Yes","audible_pop":"No"},{"injury_id":19,"injury_name":"Hamstring Strain","injury_sport":"Baseball","body_part":"Hamstring","pain_location":"Back of thigh, sudden/sharp mid-sprint","swelling":"Sometimes","bruising":"Yes","instability":"Yes","limited_range_of_motion":"Yes","audible_pop":"Sometimes"},{"injury_id":20,"injury_name":"Ankle Sprain","injury_sport":"Baseball","body_part":"Ankle","pain_location":"Around ankle joint, lateral side most common","swelling":"Yes","bruising":"Yes","instability":"Yes","limited_range_of_motion":"Yes","audible_pop":"Sometimes"},{"injury_id":21,"injury_name":"Concussion","injury_sport":"Baseball","body_part":"Head","pain_location":"Head/neck, possible headache","swelling":"Sometimes","bruising":"Sometimes","instability":"Yes","limited_range_of_motion":"No","audible_pop":"No"},{"injury_id":22,"injury_name":"Hand Contusion","injury_sport":"Baseball","body_part":"Hand","pain_location":"Localized to impact point","swelling":"Yes","bruising":"Yes","instability":"No","limited_range_of_motion":"Yes","audible_pop":"No"},{"injury_id":23,"injury_name":"Wrist Fracture","injury_sport":"Baseball","body_part":"Wrist","pain_location":"Localized to impact point","swelling":"Yes","bruising":"Yes","instability":"Yes","limited_range_of_motion":"Yes","audible_pop":"No"},{"injury_id":24,"injury_name":"Knee Injury - Meniscus","injury_sport":"Baseball","body_part":"Knee","pain_location":"Around/behind kneecap, or joint line","swelling":"Yes","bruising":"No","instability":"Yes","limited_range_of_motion":"Yes","audible_pop":"Sometimes"},{"injury_id":25,"injury_name":"Knee Injury - Patellar","injury_sport":"Baseball","body_part":"Knee","pain_location":"Around/behind kneecap, or joint line","swelling":"Yes","bruising":"No","instability":"No","limited_range_of_motion":"Yes","audible_pop":"No"},{"injury_id":26,"injury_name":"Lower Back Strain / Spondylolysis","injury_sport":"Baseball","body_part":"Lower Back","pain_location":"Lower back, may radiate to hip/buttock","swelling":"No","bruising":"No","instability":"No","limited_range_of_motion":"Yes","audible_pop":"No"},{"injury_id":27,"injury_name":"ACL Tear","injury_sport":"Football","body_part":"Knee","pain_location":"Deep in the knee joint","swelling":"Yes","bruising":"No","instability":"Yes","limited_range_of_motion":"Yes","audible_pop":"Yes"},{"injury_id":28,"injury_name":"Concussion","injury_sport":"Football","body_part":"Head","pain_location":"Generalized headache or pressure in the head","swelling":"No","bruising":"No","instability":"Yes","limited_range_of_motion":"No","audible_pop":"No"},{"injury_id":29,"injury_name":"Ankle Sprain","injury_sport":"Football","body_part":"Ankle","pain_location":"Above the ankle joint, between the tibia and fibula","swelling":"Yes","bruising":"Yes","instability":"Yes","limited_range_of_motion":"Yes","audible_pop":"Sometimes"},{"injury_id":30,"injury_name":"Hamstring Strain","injury_sport":"Football","body_part":"Hamstring","pain_location":"Back of the thigh","swelling":"Sometimes","bruising":"Yes","instability":"Yes","limited_range_of_motion":"Yes","audible_pop":"Sometimes"},{"injury_id":31,"injury_name":"MCL Sprain","injury_sport":"Football","body_part":"Knee","pain_location":"Inner side of knee","swelling":"Yes","bruising":"Sometimes","instability":"Yes","limited_range_of_motion":"Yes","audible_pop":"Sometimes"},{"injury_id":32,"injury_name":"Shoulder Dislocation","injury_sport":"Football","body_part":"Shoulder","pain_location":"Outer shoulder/deltoid area","swelling":"Yes","bruising":"No","instability":"Yes","limited_range_of_motion":"Yes","audible_pop":"Yes"},{"injury_id":33,"injury_name":"Turf Toe","injury_sport":"Football","body_part":"Big Toe","pain_location":"Base of big toe","swelling":"Yes","bruising":"Sometimes","instability":"Yes","limited_range_of_motion":"Yes","audible_pop":"Sometimes"},{"injury_id":34,"injury_name":"Achilles Tear","injury_sport":"Football","body_part":"Achilles Tendon","pain_location":"Back of ankle/heel","swelling":"Yes","bruising":"Yes","instability":"Yes","limited_range_of_motion":"Yes","audible_pop":"Yes"},{"injury_id":35,"injury_name":"Rib Fracture","injury_sport":"Football","body_part":"Chest","pain_location":"Side or front of chest","swelling":"Sometimes","bruising":"Sometimes","instability":"No","limited_range_of_motion":"Yes","audible_pop":"Sometimes"},{"injury_id":36,"injury_name":"Meniscus Tear","injury_sport":"Football","body_part":"Knee","pain_location":"Inside or outside of knee","swelling":"Yes","bruising":"Sometimes","instability":"Sometimes","limited_range_of_motion":"Yes","audible_pop":"Sometimes"},{"injury_id":37,"injury_name":"Ankle Sprain","injury_sport":"Soccer","body_part":"Ankle","pain_location":"Outside of ankle","swelling":"Yes","bruising":"Yes","instability":"Yes","limited_range_of_motion":"Yes","audible_pop":"Sometimes"},{"injury_id":38,"injury_name":"Achilles Tendonitis","injury_sport":"Soccer","body_part":"Achilles Tendon","pain_location":"Back of Ankle","swelling":"Sometimes","bruising":"No","instability":"No","limited_range_of_motion":"Sometimes","audible_pop":"No"},{"injury_id":39,"injury_name":"Achilles Tendon Rupture","injury_sport":"Soccer","body_part":"Calf","pain_location":"Lower calf","swelling":"Yes","bruising":"Sometimes","instability":"Yes","limited_range_of_motion":"Yes","audible_pop":"Yes"},{"injury_id":40,"injury_name":"ACL Tear","injury_sport":"Soccer","body_part":"Knee","pain_location":"Deep inside of knee","swelling":"Yes","bruising":"Sometimes","instability":"Yes","limited_range_of_motion":"Yes","audible_pop":"Yes"},{"injury_id":41,"injury_name":"MCL Tear","injury_sport":"Soccer","body_part":"Knee","pain_location":"Inner side of knee","swelling":"Yes","bruising":"Sometimes","instability":"Yes","limited_range_of_motion":"Sometimes","audible_pop":"Sometimes"},{"injury_id":42,"injury_name":"Concussion","injury_sport":"Soccer","body_part":"Head","pain_location":"Head","swelling":"No","bruising":"No","instability":"Sometimes","limited_range_of_motion":"No","audible_pop":"No"},{"injury_id":43,"injury_name":"Groin Strain","injury_sport":"Soccer","body_part":"Groin","pain_location":"Groin, can radiate outward to pelvic area","swelling":"Sometimes","bruising":"Sometimes","instability":"No","limited_range_of_motion":"Sometimes","audible_pop":"Sometimes"},{"injury_id":44,"injury_name":"Hamstring Strain","injury_sport":"Soccer","body_part":"Thigh","pain_location":"Back of thigh","swelling":"Sometimes","bruising":"Sometimes","instability":"No","limited_range_of_motion":"Yes","audible_pop":"Sometimes"},{"injury_id":45,"injury_name":"Shin Splint","injury_sport":"Soccer","body_part":"Shin","pain_location":"Front of shin","swelling":"No","bruising":"No","instability":"No","limited_range_of_motion":"No","audible_pop":"No"},{"injury_id":46,"injury_name":"Turf Toe","injury_sport":"Soccer","body_part":"Big Toe","pain_location":"Base of big toe","swelling":"Yes","bruising":"Sometimes","instability":"Sometimes","limited_range_of_motion":"Yes","audible_pop":"Sometimes"},{"injury_id":47,"injury_name":"Calf Strain","injury_sport":"Soccer","body_part":"Calf","pain_location":"Back of lower leg","swelling":"Sometimes","bruising":"Sometimes","instability":"No","limited_range_of_motion":"Yes","audible_pop":"Sometimes"},{"injury_id":48,"injury_name":"Shoulder Dislocation","injury_sport":"Soccer","body_part":"Shoulder","pain_location":"Outer shoulder/deltoid area","swelling":"Yes","bruising":"No","instability":"Yes","limited_range_of_motion":"Yes","audible_pop":"Yes"}],"severities":[{"severity_id":"1Mi","severity":"Mild","frequency":1.47,"recovery_time_avg":2,"can_continue_playing":"Yes","injury_id":1},{"severity_id":"1Mo","severity":"Moderate","frequency":1.47,"recovery_time_avg":4,"can_continue_playing":"No","injury_id":1},{"severity_id":"1Se","severity":"Severe","frequency":1.47,"recovery_time_avg":12,"can_continue_playing":"No","injury_id":1},{"severity_id":"2Se","severity":"Severe","frequency":0.07,"recovery_time_avg":52,"can_continue_playing":"No","injury_id":2},{"severity_id":"3Mo","severity":"Moderate","frequency":0.07,"recovery_time_avg":4,"can_continue_playing":"Yes","injury_id":3},{"severity_id":"3Se","severity":"Severe","frequency":0.07,"recovery_time_avg":16,"can_continue_playing":"No","injury_id":3},{"severity_id":"4Mi","severity":"Mild","frequency":0.12,"recovery_time_avg":4,"can_continue_playing":"Yes","injury_id":4},{"severity_id":"4Mo","severity":"Moderate","frequency":0.12,"recovery_time_avg":12,"can_continue_playing":"Yes","injury_id":4},{"severity_id":"5Se","severity":"Severe","frequency":0.01,"recovery_time_avg":52,"can_continue_playing":"No","injury_id":5},{"severity_id":"6Mi","severity":"Mild","frequency":0.3,"recovery_time_avg":2,"can_continue_playing":"Yes","injury_id":6},{"severity_id":"6Mo","severity":"Moderate","frequency":0.3,"recovery_time_avg":4,"can_continue_playing":"Yes","injury_id":6},{"severity_id":"7Mo","severity":"Moderate","frequency":0.1,"recovery_time_avg":4,"can_continue_playing":"No","injury_id":7},{"severity_id":"7Se","severity":"Severe","frequency":0.1,"recovery_time_avg":6,"can_continue_playing":"No","injury_id":7},{"severity_id":"8Mi","severity":"Mild","frequency":0.18,"recovery_time_avg":3,"can_continue_playing":"No","injury_id":8},{"severity_id":"8Mo","severity":"Moderate","frequency":0.18,"recovery_time_avg":6,"can_continue_playing":"No","injury_id":8},{"severity_id":"9Mi","severity":"Mild","frequency":0.2,"recovery_time_avg":3,"can_continue_playing":"Yes","injury_id":9},{"severity_id":"9Mo","severity":"Moderate","frequency":0.2,"recovery_time_avg":6,"can_continue_playing":"No","injury_id":9},{"severity_id":"9Se","severity":"Severe","frequency":0.2,"recovery_time_avg":12,"can_continue_playing":"No","injury_id":9},{"severity_id":"10Mo","severity":"Moderate","frequency":0.34,"recovery_time_avg":3,"can_continue_playing":"No","injury_id":10},{"severity_id":"11Mi","severity":"Mild","frequency":0.15,"recovery_time_avg":1,"can_continue_playing":"Yes","injury_id":11},{"severity_id":"11Mo","severity":"Moderate","frequency":0.15,"recovery_time_avg":2,"can_continue_playing":"Yes","injury_id":11},{"severity_id":"12Mo","severity":"Moderate","frequency":0.05,"recovery_time_avg":4,"can_continue_playing":"No","injury_id":12},{"severity_id":"12Se","severity":"Severe","frequency":0.05,"recovery_time_avg":8,"can_continue_playing":"No","injury_id":12},{"severity_id":"13Mi","severity":"Mild","frequency":0.15,"recovery_time_avg":2,"can_continue_playing":"Yes","injury_id":13},{"severity_id":"13Mo","severity":"Moderate","frequency":0.15,"recovery_time_avg":6,"can_continue_playing":"Yes","injury_id":13},{"severity_id":"14Mo","severity":"Moderate","frequency":0.03,"recovery_time_avg":12,"can_continue_playing":"No","injury_id":14},{"severity_id":"14Se","severity":"Severe","frequency":0.03,"recovery_time_avg":24,"can_continue_playing":"No","injury_id":14},{"severity_id":"15Mi","severity":"Mild","frequency":0.07,"recovery_time_avg":12,"can_continue_playing":"No","injury_id":15},{"severity_id":"15Mo","severity":"Moderate","frequency":0.07,"recovery_time_avg":24,"can_continue_playing":"No","injury_id":15},{"severity_id":"16Mo","severity":"Moderate","frequency":0.04,"recovery_time_avg":52,"can_continue_playing":"No","injury_id":16},{"severity_id":"16Se","severity":"Severe","frequency":0.04,"recovery_time_avg":78,"can_continue_playing":"No","injury_id":16},{"severity_id":"17Mo","severity":"Moderate","frequency":0.08,"recovery_time_avg":16,"can_continue_playing":"No","injury_id":17},{"severity_id":"17Se","severity":"Severe","frequency":0.08,"recovery_time_avg":52,"can_continue_playing":"No","injury_id":17},{"severity_id":"18Mo","severity":"Moderate","frequency":0.05,"recovery_time_avg":4,"can_continue_playing":"No","injury_id":18},{"severity_id":"19Mi","severity":"Mild","frequency":0.25,"recovery_time_avg":1,"can_continue_playing":"Yes","injury_id":19},{"severity_id":"19Mo","severity":"Moderate","frequency":0.25,"recovery_time_avg":3,"can_continue_playing":"No","injury_id":19},{"severity_id":"19Se","severity":"Severe","frequency":0.25,"recovery_time_avg":6,"can_continue_playing":"No","injury_id":19},{"severity_id":"20Mi","severity":"Mild","frequency":0.37,"recovery_time_avg":2,"can_continue_playing":"No","injury_id":20},{"severity_id":"20Mo","severity":"Moderate","frequency":0.37,"recovery_time_avg":4,"can_continue_playing":"No","injury_id":20},{"severity_id":"20Se","severity":"Severe","frequency":0.37,"recovery_time_avg":12,"can_continue_playing":"No","injury_id":20},{"severity_id":"21Mo","severity":"Moderate","frequency":0.09,"recovery_time_avg":3,"can_continue_playing":"No","injury_id":21},{"severity_id":"22Mi","severity":"Mild","frequency":0.2,"recovery_time_avg":1,"can_continue_playing":"Yes","injury_id":22},{"severity_id":"22Mo","severity":"Moderate","frequency":0.2,"recovery_time_avg":2,"can_continue_playing":"Yes","injury_id":22},{"severity_id":"23Mo","severity":"Moderate","frequency":0.05,"recovery_time_avg":4,"can_continue_playing":"No","injury_id":23},{"severity_id":"23Se","severity":"Severe","frequency":0.05,"recovery_time_avg":8,"can_continue_playing":"No","injury_id":23},{"severity_id":"24Mi","severity":"Mild","frequency":0.03,"recovery_time_avg":2,"can_continue_playing":"Yes","injury_id":24},{"severity_id":"24Mo","severity":"Moderate","frequency":0.03,"recovery_time_avg":4,"can_continue_playing":"Yes","injury_id":24},{"severity_id":"25Mo","severity":"Moderate","frequency":0.05,"recovery_time_avg":8,"can_continue_playing":"No","injury_id":25},{"severity_id":"25Se","severity":"Severe","frequency":0.05,"recovery_time_avg":24,"can_continue_playing":"No","injury_id":25},{"severity_id":"26Mi","severity":"Mild","frequency":0.1,"recovery_time_avg":3,"can_continue_playing":"Yes","injury_id":26},{"severity_id":"26Mo","severity":"Moderate","frequency":0.1,"recovery_time_avg":8,"can_continue_playing":"No","injury_id":26},{"severity_id":"26Se","severity":"Severe","frequency":0.1,"recovery_time_avg":16,"can_continue_playing":"No","injury_id":26},{"severity_id":"27Se","severity":"Severe","frequency":0.07,"recovery_time_avg":52,"can_continue_playing":"No","injury_id":27},{"severity_id":"28Mo","severity":"Moderate","frequency":0.7,"recovery_time_avg":2,"can_continue_playing":"No","injury_id":28},{"severity_id":"29Mi","severity":"Mild","frequency":0.64,"recovery_time_avg":1,"can_continue_playing":"No","injury_id":29},{"severity_id":"29Mo","severity":"Moderate","frequency":0.64,"recovery_time_avg":6,"can_continue_playing":"No","injury_id":29},{"severity_id":"30Mi","severity":"Mild","frequency":0.44,"recovery_time_avg":2,"can_continue_playing":"No","injury_id":30},{"severity_id":"30Mo","severity":"Moderate","frequency":0.44,"recovery_time_avg":4,"can_continue_playing":"No","injury_id":30},{"severity_id":"30Se","severity":"Severe","frequency":0.44,"recovery_time_avg":8,"can_continue_playing":"No","injury_id":30},{"severity_id":"31Mi","severity":"Mild","frequency":0.2,"recovery_time_avg":3,"can_continue_playing":"Yes","injury_id":31},{"severity_id":"31Mo","severity":"Moderate","frequency":0.2,"recovery_time_avg":8,"can_continue_playing":"No","injury_id":31},{"severity_id":"32Mo","severity":"Moderate","frequency":0.15,"recovery_time_avg":4,"can_continue_playing":"No","injury_id":32},{"severity_id":"32Se","severity":"Severe","frequency":0.15,"recovery_time_avg":12,"can_continue_playing":"No","injury_id":32},{"severity_id":"33Mi","severity":"Mild","frequency":0.06,"recovery_time_avg":2,"can_continue_playing":"Yes","injury_id":33},{"severity_id":"33Mo","severity":"Moderate","frequency":0.06,"recovery_time_avg":4,"can_continue_playing":"No","injury_id":33},{"severity_id":"34Se","severity":"Severe","frequency":0.05,"recovery_time_avg":52,"can_continue_playing":"No","injury_id":34},{"severity_id":"35Mo","severity":"Moderate","frequency":0.1,"recovery_time_avg":6,"can_continue_playing":"No","injury_id":35},{"severity_id":"36Mo","severity":"Moderate","frequency":0.1,"recovery_time_avg":6,"can_continue_playing":"No","injury_id":36},{"severity_id":"36Se","severity":"Severe","frequency":0.1,"recovery_time_avg":12,"can_continue_playing":"No","injury_id":36},{"severity_id":"37Mi","severity":"Mild","frequency":0.78,"recovery_time_avg":3,"can_continue_playing":"Yes","injury_id":37},{"severity_id":"38Mo","severity":"Moderate","frequency":0.05,"recovery_time_avg":9,"can_continue_playing":"Yes","injury_id":38},{"severity_id":"39Se","severity":"Severe","frequency":0.01,"recovery_time_avg":39,"can_continue_playing":"No","injury_id":39},{"severity_id":"40Se","severity":"Severe","frequency":0.1,"recovery_time_avg":52,"can_continue_playing":"No","injury_id":40},{"severity_id":"41Mo","severity":"Moderate","frequency":0.08,"recovery_time_avg":6,"can_continue_playing":"No","injury_id":41},{"severity_id":"42Mo","severity":"Moderate","frequency":0.44,"recovery_time_avg":2,"can_continue_playing":"No","injury_id":42},{"severity_id":"43Mo","severity":"Moderate","frequency":0.45,"recovery_time_avg":4,"can_continue_playing":"No","injury_id":43},{"severity_id":"44Mi","severity":"Mild","frequency":0.6,"recovery_time_avg":3,"can_continue_playing":"Yes","injury_id":44},{"severity_id":"45Mo","severity":"Moderate","frequency":0.2,"recovery_time_avg":4,"can_continue_playing":"No","injury_id":45},{"severity_id":"46Mo","severity":"Moderate","frequency":0.04,"recovery_time_avg":4,"can_continue_playing":"No","injury_id":46},{"severity_id":"47Mo","severity":"Moderate","frequency":0.25,"recovery_time_avg":4,"can_continue_playing":"No","injury_id":47},{"severity_id":"48Mo","severity":"Moderate","frequency":0.15,"recovery_time_avg":4,"can_continue_playing":"No","injury_id":48},{"severity_id":"48Se","severity":"Severe","frequency":0.15,"recovery_time_avg":12,"can_continue_playing":"No","injury_id":48}],"moves":[{"move_id":1,"move_name":"Driving to the Basket","move_description":"Dribble-drive toward the hoop, often with a defender in pursuit"},{"move_id":2,"move_name":"Jump Shot (shooting motion)","move_description":"Repetitive jumping and shooting mechanics"},{"move_id":3,"move_name":"Landing from a Jump","move_description":"Coming down from a rebound, layup, or shot attempt"},{"move_id":4,"move_name":"Cutting/Changing Direction","move_description":"Crossovers, defensive slides, and sudden direction changes"},{"move_id":5,"move_name":"Boxing Out/Post-Up","move_description":"Physical positioning and contact battling for space"},{"move_id":6,"move_name":"Blocking or Contesting a Shot","move_description":"Reaching to alter or block an opponent's shot"},{"move_id":7,"move_name":"Diving for a Loose Ball / Falling","move_description":"Diving on the floor or falling from contact"},{"move_id":8,"move_name":"Fast Break Sprint","move_description":"Explosive full-speed running in transition"},{"move_id":9,"move_name":"Pitching","move_description":"Full overhead throwing motion (wind-up through follow-through)"},{"move_id":10,"move_name":"Batting/Swing","move_description":"Rotational swing to hit a pitched ball"},{"move_id":11,"move_name":"Base Running","move_description":"Sprinting between bases"},{"move_id":12,"move_name":"Sliding","move_description":"Feet-first or head-first slide into a base"},{"move_id":13,"move_name":"Fielding a Ground Ball","move_description":"Bending/lateral movement to field, followed by a throw"},{"move_id":14,"move_name":"Catching/Blocking (catcher)","move_description":"Repetitive squatting, blocking, framing"},{"move_id":15,"move_name":"Diving/Collision","move_description":"Diving for a catch or colliding with wall/player"},{"move_id":16,"move_name":"Hit By Pitch","move_description":"Direct ball contact with batter/catcher"},{"move_id":17,"move_name":"Tackling / Collision","move_description":"Direct physical contact with another player involving forceful impact between the body or limbs"},{"move_id":18,"move_name":"Sudden Cutting","move_description":"Rapidly changing direction while running, placing high stress on the knees, ankles, and other lower-extremity joints"},{"move_id":19,"move_name":"Explosive Sprinting","move_description":"Rapidly accelerating from a stationary or slow position, requiring sudden, powerful contraction of the leg muscles"},{"move_id":20,"move_name":"Absorbing Contact","move_description":"Bracing for and receiving physical impact from another player or external force while maintaining balance and body position"},{"move_id":21,"move_name":"Landing After Jump","move_description":"Returning to the ground after jumping, requiring controlled absorption of body weight and impact through the ankles, knees, and hips"},{"move_id":22,"move_name":"Running/Sprinting","move_description":"High-speed movement to chase the ball or create space"},{"move_id":23,"move_name":"Passing","move_description":"Striking the ball to a teammate with control and accuracy"},{"move_id":24,"move_name":"Kicking/Shooting","move_description":"Forceful strike on the ball, usually aimed at goal"},{"move_id":25,"move_name":"Dribbling","move_description":"Close ball control while moving past defenders"},{"move_id":26,"move_name":"Receiving/Trapping","move_description":"Controlling an incoming ball with foot, chest, or thigh"},{"move_id":27,"move_name":"Heading","move_description":"Using the head to pass, clear, or score"},{"move_id":28,"move_name":"Jumping/Landing","move_description":"Vertical leap (often for headers) with controlled landing"},{"move_id":29,"move_name":"Sliding Tackle","move_description":"Sliding on the ground to dispossess an opponent"},{"move_id":30,"move_name":"Goalkeeper Save/Dive","move_description":"Diving or reaching to stop the ball from entering the goal"}],"moveInjury":[{"move_id":1,"injury_id":2},{"move_id":1,"injury_id":1},{"move_id":2,"injury_id":4},{"move_id":2,"injury_id":9},{"move_id":3,"injury_id":1},{"move_id":3,"injury_id":2},{"move_id":4,"injury_id":2},{"move_id":4,"injury_id":8},{"move_id":5,"injury_id":9},{"move_id":5,"injury_id":6},{"move_id":5,"injury_id":7},{"move_id":6,"injury_id":6},{"move_id":6,"injury_id":7},{"move_id":6,"injury_id":11},{"move_id":6,"injury_id":12},{"move_id":7,"injury_id":11},{"move_id":7,"injury_id":12},{"move_id":7,"injury_id":10},{"move_id":8,"injury_id":8},{"move_id":8,"injury_id":5},{"move_id":9,"injury_id":16},{"move_id":9,"injury_id":13},{"move_id":9,"injury_id":14},{"move_id":10,"injury_id":18},{"move_id":10,"injury_id":17},{"move_id":11,"injury_id":19},{"move_id":11,"injury_id":20},{"move_id":12,"injury_id":20},{"move_id":12,"injury_id":22},{"move_id":12,"injury_id":23},{"move_id":13,"injury_id":19},{"move_id":13,"injury_id":24},{"move_id":13,"injury_id":25},{"move_id":14,"injury_id":24},{"move_id":14,"injury_id":25},{"move_id":14,"injury_id":21},{"move_id":15,"injury_id":21},{"move_id":15,"injury_id":20},{"move_id":16,"injury_id":22},{"move_id":16,"injury_id":23},{"move_id":16,"injury_id":21},{"move_id":17,"injury_id":28},{"move_id":17,"injury_id":32},{"move_id":18,"injury_id":27},{"move_id":18,"injury_id":29},{"move_id":19,"injury_id":30},{"move_id":19,"injury_id":34},{"move_id":20,"injury_id":31},{"move_id":20,"injury_id":35},{"move_id":21,"injury_id":29},{"move_id":21,"injury_id":36},{"move_id":22,"injury_id":44},{"move_id":22,"injury_id":47},{"move_id":23,"injury_id":44},{"move_id":23,"injury_id":43},{"move_id":24,"injury_id":44},{"move_id":24,"injury_id":43},{"move_id":25,"injury_id":37},{"move_id":25,"injury_id":40},{"move_id":26,"injury_id":37},{"move_id":26,"injury_id":41},{"move_id":27,"injury_id":42},{"move_id":27,"injury_id":37},{"move_id":28,"injury_id":37},{"move_id":28,"injury_id":40},{"move_id":29,"injury_id":41},{"move_id":29,"injury_id":37},{"move_id":30,"injury_id":48},{"move_id":30,"injury_id":37},{"move_id":30,"injury_id":40}]};
+import {
+  BODY_GROUPS, BODY_AREAS, SYMPTOM_FIELDS,
+  movesForSport, recognizeAreas, recognizeMoves, areaLabels,
+  scoreInjuries, decideTier,
+} from './triage.js';
 
 const SPORTS = ['Basketball', 'Baseball', 'Football', 'Soccer'];
 
@@ -19,14 +19,6 @@ const SPORT_META = {
   Football: { icon: ShieldAlert, blurb: 'Contact, tackling, and sprints' },
   Soccer: { icon: HeartPulse, blurb: 'Sprinting, cutting, and striking' },
 };
-
-const SYMPTOM_FIELDS = [
-  { key: 'swelling', label: 'Swelling', hint: 'Puffiness or fluid buildup around the area' },
-  { key: 'bruising', label: 'Bruising', hint: 'Discoloration under the skin' },
-  { key: 'instability', label: 'Instability', hint: 'Feels like it could give out or shift' },
-  { key: 'limited_range_of_motion', label: 'Limited motion', hint: "Can't move it through its full range" },
-  { key: 'audible_pop', label: 'Audible pop', hint: 'Heard or felt a pop or snap at the moment of injury' },
-];
 
 const RED_FLAGS = [
   { key: 'deformity', short: 'Visible deformity', text: 'Does the area look visibly out of place, bent, or deformed?' },
@@ -69,79 +61,6 @@ const TIERS = {
     copy: "Nothing here points to a serious injury. Rest, ice, and keep an eye on it. See a clinician if it isn't improving in a few days or gets worse.",
   },
 };
-
-/* ---------------------------------------------------------------
-   MATCHING LOGIC
-   A rules-based stand-in for the eventual model: scores every
-   injury on record for the chosen sport against the mechanism,
-   body parts, and reported symptoms, then the red-flag and
-   weight-bearing answers set the urgency tier.
---------------------------------------------------------------- */
-function movesForSport(sport) {
-  const injuryIds = new Set(DB.injuries.filter(i => i.injury_sport === sport).map(i => i.injury_id));
-  const moveIds = new Set(DB.moveInjury.filter(mi => injuryIds.has(mi.injury_id)).map(mi => mi.move_id));
-  return DB.moves.filter(m => moveIds.has(m.move_id));
-}
-
-function bodyPartsForSport(sport) {
-  return [...new Set(DB.injuries.filter(i => i.injury_sport === sport).map(i => i.body_part))];
-}
-
-function dominantSeverity(injuryId) {
-  const rows = DB.severities.filter(s => s.injury_id === injuryId);
-  if (!rows.length) return null;
-  return [...rows].sort((a, b) => b.frequency - a.frequency)[0];
-}
-
-function scoreInjuries({ sport, moveId, bodyParts, symptoms }) {
-  const candidates = DB.injuries.filter(i => i.injury_sport === sport);
-  const linkedInjuryIds = new Set(
-    DB.moveInjury.filter(mi => mi.move_id === moveId).map(mi => mi.injury_id)
-  );
-
-  return candidates
-    .map(inj => {
-      let score = 0;
-      const reasons = [];
-
-      if (moveId && linkedInjuryIds.has(inj.injury_id)) {
-        score += 4;
-        reasons.push('Matches how this usually happens');
-      }
-      if (bodyParts && bodyParts.length > 0 && bodyParts.includes(inj.body_part)) {
-        score += 3;
-        reasons.push('Same body part');
-      }
-      SYMPTOM_FIELDS.forEach(({ key, label }) => {
-        const userAns = symptoms[key];
-        if (!userAns || userAns === 'unsure') return;
-        const injVal = inj[key];
-        if (injVal === 'Sometimes') {
-          score += 1;
-        } else if ((injVal === 'Yes' && userAns === 'yes') || (injVal === 'No' && userAns === 'no')) {
-          score += 2;
-          reasons.push(`Reported ${label.toLowerCase()} fits this injury`);
-        } else {
-          score -= 2;
-        }
-      });
-
-      return { ...inj, score, reasons, severity: dominantSeverity(inj.injury_id) };
-    })
-    .sort((a, b) => b.score - a.score)
-    .filter(r => r.score > 0)
-    .slice(0, 4);
-}
-
-function decideTier({ redFlags, weightBearing, topMatch }) {
-  if (Object.values(redFlags).some(v => v === 'yes')) return 'emergency';
-  if (weightBearing !== 'yes') return 'urgent'; // 'no' or 'unsure' both default to caution
-  if (!topMatch || !topMatch.severity) return 'clinician';
-  const sev = topMatch.severity.severity;
-  if (sev === 'Severe') return 'urgent';
-  if (sev === 'Moderate') return 'clinician';
-  return 'selfcare';
-}
 
 /* ---------------------------------------------------------------
    PERSISTENCE
@@ -541,27 +460,92 @@ function EmergencyScreen({ onBack }) {
 /* ---------------------------------------------------------------
    REPORT FLOW
 --------------------------------------------------------------- */
+function CheckDot() {
+  return (
+    <div style={{
+      width: 24, height: 24, borderRadius: '50%', background: C.mint, flexShrink: 0,
+      display: 'flex', alignItems: 'center', justifyContent: 'center',
+    }}>
+      <Check size={15} color={C.ink} strokeWidth={3} />
+    </div>
+  );
+}
+
+function Chip({ on, onClick, children }) {
+  return (
+    <button
+      aria-pressed={on}
+      onClick={onClick}
+      style={{
+        padding: '9px 14px', borderRadius: 20, fontSize: 13, fontWeight: 600,
+        display: 'inline-flex', alignItems: 'center', gap: 6,
+        border: `2px solid ${on ? C.purple : C.line}`,
+        background: on ? C.purple : C.white,
+        color: on ? C.white : C.ink,
+      }}
+    >
+      {on && <Check size={13} strokeWidth={3} />}
+      {children}
+    </button>
+  );
+}
+
+// Free-text box with live feedback on what the app understood.
+function OtherBox({ value, onChange, placeholder, recognized, emptyNote }) {
+  const has = value.trim().length > 0;
+  return (
+    <div style={{ marginBottom: 6 }}>
+      <input
+        type="text"
+        value={value}
+        autoFocus
+        onChange={e => onChange(e.target.value)}
+        placeholder={placeholder}
+        style={{
+          width: '100%', boxSizing: 'border-box', padding: '12px 14px', fontSize: 14,
+          borderRadius: 12, border: `2px solid ${C.line}`, background: C.white, color: C.ink, outline: 'none',
+        }}
+      />
+      {has && recognized.length > 0 && (
+        <div style={{ fontSize: 12.5, color: '#0B7A5C', marginTop: 8, fontWeight: 600 }}>
+          Understood as: {recognized.join(', ')}
+        </div>
+      )}
+      {has && recognized.length === 0 && (
+        <div style={{ fontSize: 12, color: C.muted, marginTop: 8 }}>{emptyNote}</div>
+      )}
+    </div>
+  );
+}
+
 function ReportFlow({ onExit, onHistory }) {
   const [step, setStep] = useState(0);
   const [sport, setSport] = useState(null);
   const [redFlags, setRedFlags] = useState({});
-  const [moveId, setMoveId] = useState(null);
-  const [selectedBodyParts, setSelectedBodyParts] = useState([]);
+  const [moveIds, setMoveIds] = useState([]);
+  const [moveOther, setMoveOther] = useState(null);      // null = "Other" not chosen, string = chosen
+  const [areaIds, setAreaIds] = useState([]);
+  const [areaOther, setAreaOther] = useState(null);
   const [weightBearing, setWeightBearing] = useState(null);
   const [symptoms, setSymptoms] = useState({});
 
   const moves = useMemo(() => (sport ? movesForSport(sport) : []), [sport]);
-  const bodyPartOptions = useMemo(() => (sport ? bodyPartsForSport(sport) : []), [sport]);
   const redFlagTriggered = Object.values(redFlags).some(v => v === 'yes');
 
-  const toggleBodyPart = (bp) => {
-    setSelectedBodyParts(prev => (prev.includes(bp) ? prev.filter(x => x !== bp) : [...prev, bp]));
-  };
+  // What the app understood from the free-text "Other" boxes
+  const otherMoveIds = useMemo(() => (moveOther && sport ? recognizeMoves(moveOther, sport) : []), [moveOther, sport]);
+  const otherAreaIds = useMemo(() => (areaOther ? recognizeAreas(areaOther) : []), [areaOther]);
+  const allMoveIds = useMemo(() => [...new Set([...moveIds, ...otherMoveIds])], [moveIds, otherMoveIds]);
+  const allAreaIds = useMemo(() => [...new Set([...areaIds, ...otherAreaIds])], [areaIds, otherAreaIds]);
+
+  const toggleIn = (setter) => (id) => setter(prev => (prev.includes(id) ? prev.filter(x => x !== id) : [...prev, id]));
+  const toggleMove = toggleIn(setMoveIds);
+  const toggleArea = toggleIn(setAreaIds);
 
   const results = useMemo(() => {
     if (!sport || redFlagTriggered) return [];
-    return scoreInjuries({ sport, moveId, bodyParts: selectedBodyParts, symptoms });
-  }, [sport, moveId, selectedBodyParts, symptoms, redFlagTriggered]);
+    return scoreInjuries({ sport, moveIds: allMoveIds, areaIds: allAreaIds, symptoms });
+  }, [sport, allMoveIds, allAreaIds, symptoms, redFlagTriggered]);
 
   const tierKey = useMemo(() => {
     if (!sport) return null;
@@ -573,14 +557,18 @@ function ReportFlow({ onExit, onHistory }) {
   useEffect(() => {
     if (step !== 4 || !tierKey) return;
     if (!savedIdRef.current) savedIdRef.current = Date.now();
-    const move = moves.find(m => m.move_id === moveId);
+    const moveNames = allMoveIds
+      .map(id => (moves.find(m => m.move_id === id) || {}).move_name)
+      .filter(Boolean);
     upsertReport({
       id: savedIdRef.current,
       savedAt: new Date().toISOString(),
       sport,
-      moveId,
-      moveName: move ? move.move_name : null,
-      bodyParts: selectedBodyParts,
+      moveIds: allMoveIds,
+      moveNames,
+      moveOther: moveOther && moveOther.trim() ? moveOther.trim() : null,
+      bodyParts: areaLabels(allAreaIds),
+      bodyPartOther: areaOther && areaOther.trim() ? areaOther.trim() : null,
       symptoms,
       weightBearing,
       redFlags,
@@ -679,63 +667,80 @@ function ReportFlow({ onExit, onHistory }) {
       {step === 2 && (
         <div>
           <h2 style={H2}>What were you doing?</h2>
-          <p style={SUB}>Pick the closest match to what you were doing when it happened.</p>
-          <div style={{
-            display: 'flex', flexDirection: 'column', gap: 10, marginBottom: 22,
-            maxHeight: 300, overflowY: 'auto', padding: '4px 4px 8px', margin: '0 -4px 18px',
-          }}>
+          <p style={SUB}>Pick everything that fits, or describe it in your own words under "Other".</p>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: 10, marginBottom: 12 }}>
             {moves.map(m => {
-              const on = moveId === m.move_id;
+              const on = moveIds.includes(m.move_id);
               return (
                 <Card
                   key={m.move_id}
                   active={on}
-                  onClick={() => setMoveId(m.move_id)}
+                  onClick={() => toggleMove(m.move_id)}
                   style={{ padding: '13px 16px', display: 'flex', alignItems: 'center', gap: 12 }}
                 >
                   <div style={{ flex: 1 }}>
                     <div style={{ fontSize: 14, fontWeight: 600 }}>{m.move_name}</div>
                     <div style={{ fontSize: 12, color: C.muted, marginTop: 2 }}>{m.move_description}</div>
                   </div>
-                  {on && (
-                    <div style={{
-                      width: 24, height: 24, borderRadius: '50%', background: C.mint, flexShrink: 0,
-                      display: 'flex', alignItems: 'center', justifyContent: 'center',
-                    }}>
-                      <Check size={15} color={C.ink} strokeWidth={3} />
-                    </div>
-                  )}
+                  {on && <CheckDot />}
                 </Card>
               );
             })}
+            <Card
+              active={moveOther !== null}
+              onClick={() => setMoveOther(v => (v === null ? '' : null))}
+              style={{ padding: '13px 16px', display: 'flex', alignItems: 'center', gap: 12 }}
+            >
+              <div style={{ flex: 1 }}>
+                <div style={{ fontSize: 14, fontWeight: 600 }}>Other</div>
+                <div style={{ fontSize: 12, color: C.muted, marginTop: 2 }}>Something else, describe it below</div>
+              </div>
+              {moveOther !== null && <CheckDot />}
+            </Card>
           </div>
+          {moveOther !== null && (
+            <OtherBox
+              value={moveOther}
+              onChange={setMoveOther}
+              placeholder="e.g. landed awkwardly after a dunk"
+              recognized={otherMoveIds.map(id => (moves.find(m => m.move_id === id) || {}).move_name).filter(Boolean)}
+              emptyNote="We didn't match that to a known movement, so it won't change the ranking. You can still continue and it will be saved with your report."
+            />
+          )}
 
-          <h2 style={H2}>Where does it hurt?</h2>
-          <p style={{ ...SUB, marginBottom: 10 }}>Select all that apply.</p>
-          <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8, marginBottom: 22 }}>
-            {bodyPartOptions.map(bp => {
-              const on = selectedBodyParts.includes(bp);
-              return (
-                <button
-                  key={bp}
-                  aria-pressed={on}
-                  onClick={() => toggleBodyPart(bp)}
-                  style={{
-                    padding: '9px 14px', borderRadius: 20, fontSize: 13, fontWeight: 600,
-                    display: 'inline-flex', alignItems: 'center', gap: 6,
-                    border: `2px solid ${on ? C.purple : C.line}`,
-                    background: on ? C.purple : C.white,
-                    color: on ? C.white : C.ink,
-                  }}
-                >
-                  {on && <Check size={13} strokeWidth={3} />}
-                  {bp}
-                </button>
-              );
-            })}
+          <h2 style={{ ...H2, marginTop: 22 }}>Where does it hurt?</h2>
+          <p style={{ ...SUB, marginBottom: 10 }}>Select all that apply. Pick the most specific spot you can.</p>
+          {BODY_GROUPS.map(g => (
+            <div key={g} style={{ marginBottom: 12 }}>
+              <div style={{ fontSize: 11.5, fontWeight: 700, color: C.muted, letterSpacing: 0.4, textTransform: 'uppercase', marginBottom: 6 }}>{g}</div>
+              <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8 }}>
+                {BODY_AREAS.filter(a => a.group === g).map(a => (
+                  <Chip key={a.id} on={areaIds.includes(a.id)} onClick={() => toggleArea(a.id)}>{a.label}</Chip>
+                ))}
+              </div>
+            </div>
+          ))}
+          <div style={{ marginBottom: 12 }}>
+            <Chip on={areaOther !== null} onClick={() => setAreaOther(v => (v === null ? '' : null))}>Other</Chip>
           </div>
+          {areaOther !== null && (
+            <OtherBox
+              value={areaOther}
+              onChange={setAreaOther}
+              placeholder="e.g. top of my foot near the heel"
+              recognized={areaLabels(otherAreaIds)}
+              emptyNote="We didn't recognize a body part in that, so it won't change the ranking. Try a plainer word like foot, shin, or hamstring."
+            />
+          )}
 
-          <Button disabled={!moveId || selectedBodyParts.length === 0} onClick={next}>
+          <div style={{ height: 10 }} />
+          <Button
+            disabled={
+              (allMoveIds.length === 0 && !(moveOther || '').trim()) ||
+              (allAreaIds.length === 0 && !(areaOther || '').trim())
+            }
+            onClick={next}
+          >
             Continue <ArrowRight size={16} />
           </Button>
         </div>
@@ -775,8 +780,8 @@ function ReportFlow({ onExit, onHistory }) {
           onHistory={onHistory}
           onRestart={() => {
             savedIdRef.current = null;
-            setStep(0); setSport(null); setRedFlags({}); setMoveId(null);
-            setSelectedBodyParts([]); setWeightBearing(null); setSymptoms({});
+            setStep(0); setSport(null); setRedFlags({}); setMoveIds([]); setMoveOther(null);
+            setAreaIds([]); setAreaOther(null); setWeightBearing(null); setSymptoms({});
           }}
           onExit={onExit}
         />
@@ -930,8 +935,10 @@ function ReportCard({ r }) {
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', gap: 10 }}>
           <div>
             <div style={{ fontSize: 15, fontWeight: 600 }}>{r.sport}</div>
-            {r.bodyParts && r.bodyParts.length > 0 && (
-              <div style={{ fontSize: 12, color: C.muted }}>{r.bodyParts.join(', ')}</div>
+            {(r.bodyParts && r.bodyParts.length > 0 || r.bodyPartOther) && (
+              <div style={{ fontSize: 12, color: C.muted }}>
+                {[...(r.bodyParts || []), ...(r.bodyPartOther && !(r.bodyParts || []).length ? [r.bodyPartOther] : [])].join(', ')}
+              </div>
             )}
           </div>
           <ChevronDown
@@ -968,19 +975,23 @@ function ReportCard({ r }) {
             </p>
           )}
 
-          {r.moveName && (
+          {(r.moveNames && r.moveNames.length > 0 || r.moveName || r.moveOther) && (
             <DetailSection title="What you were doing">
-              <div style={{ fontSize: 13 }}>{r.moveName}</div>
+              {(r.moveNames && r.moveNames.length > 0 ? r.moveNames : r.moveName ? [r.moveName] : []).map(n => (
+                <div key={n} style={{ fontSize: 13 }}>{n}</div>
+              ))}
+              {r.moveOther && <div style={{ fontSize: 12.5, color: C.muted, marginTop: 4 }}>In your words: "{r.moveOther}"</div>}
             </DetailSection>
           )}
 
-          {r.bodyParts && r.bodyParts.length > 0 && (
+          {(r.bodyParts && r.bodyParts.length > 0 || r.bodyPartOther) && (
             <DetailSection title="Where it hurt">
               <div style={{ display: 'flex', flexWrap: 'wrap', gap: 6 }}>
-                {r.bodyParts.map(bp => (
+                {(r.bodyParts || []).map(bp => (
                   <span key={bp} style={{ fontSize: 12, background: '#ECEAFB', borderRadius: 12, padding: '3px 10px' }}>{bp}</span>
                 ))}
               </div>
+              {r.bodyPartOther && <div style={{ fontSize: 12.5, color: C.muted, marginTop: 6 }}>In your words: "{r.bodyPartOther}"</div>}
             </DetailSection>
           )}
 
