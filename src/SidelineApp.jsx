@@ -6,9 +6,9 @@ import {
 } from 'lucide-react';
 
 import {
-  BODY_GROUPS, BODY_AREAS, SYMPTOM_FIELDS,
+  BODY_GROUPS, BODY_AREAS, SYMPTOM_FIELDS, CONTACT_OPTIONS,
   movesForSport, recognizeAreas, recognizeMoves, areaLabels,
-  scoreInjuries, decideTier,
+  analyze, decideTier,
 } from './triage.js';
 
 const SPORTS = ['Basketball', 'Baseball', 'Football', 'Soccer'];
@@ -21,10 +21,17 @@ const SPORT_META = {
 };
 
 const RED_FLAGS = [
-  { key: 'deformity', short: 'Visible deformity', text: 'Does the area look visibly out of place, bent, or deformed?' },
-  { key: 'nerve', short: 'Numbness or color change', text: 'Any numbness, tingling, or a change in skin color below the injury?' },
-  { key: 'wound', short: 'Open wound or exposed bone', text: 'Is there an open wound, or is bone visible?' },
-  { key: 'loc', short: 'Head hit with blackout or confusion', text: 'Was there a hit to the head with loss of consciousness or confusion?' },
+  { key: 'collapse', short: 'Collapse, chest pain, or trouble breathing',
+    text: 'Did they collapse or pass out without a hit to the head, or have chest pain or trouble breathing?',
+    firstAid: "Call 911 (or your local emergency number) now. If they're unresponsive and not breathing normally, start CPR and send someone for the nearest AED." },
+  { key: 'deformity', short: 'Visible deformity', text: 'Does the area look visibly out of place, bent, or deformed?',
+    firstAid: "Don't try to straighten it or pop it back in. Keep it still in the position you found it." },
+  { key: 'nerve', short: 'Numbness or color change', text: 'Any numbness, tingling, or a change in skin color below the injury?',
+    firstAid: "If the neck or back could be hurt, don't move them. Keep the head and neck still until help arrives." },
+  { key: 'wound', short: 'Open wound or exposed bone', text: 'Is there an open wound, or is bone visible?',
+    firstAid: "Cover the wound with a clean cloth and press gently around (not on) any bone. Don't push anything back in." },
+  { key: 'loc', short: 'Head hit with blackout or confusion', text: 'Was there a hit to the head with loss of consciousness or confusion?',
+    firstAid: 'No more play today. Stay with them and get help fast if headache, vomiting, drowsiness, or confusion gets worse.' },
 ];
 
 const TIERS = {
@@ -526,8 +533,12 @@ function ReportFlow({ onExit, onHistory }) {
   const [moveOther, setMoveOther] = useState(null);      // null = "Other" not chosen, string = chosen
   const [areaIds, setAreaIds] = useState([]);
   const [areaOther, setAreaOther] = useState(null);
+  const [contact, setContact] = useState(null);
   const [weightBearing, setWeightBearing] = useState(null);
   const [symptoms, setSymptoms] = useState({});
+
+  // Every new step starts at the top of the page.
+  useEffect(() => { window.scrollTo(0, 0); }, [step]);
 
   const moves = useMemo(() => (sport ? movesForSport(sport) : []), [sport]);
   const redFlagTriggered = Object.values(redFlags).some(v => v === 'yes');
@@ -542,15 +553,16 @@ function ReportFlow({ onExit, onHistory }) {
   const toggleMove = toggleIn(setMoveIds);
   const toggleArea = toggleIn(setAreaIds);
 
-  const results = useMemo(() => {
-    if (!sport || redFlagTriggered) return [];
-    return scoreInjuries({ sport, moveIds: allMoveIds, areaIds: allAreaIds, symptoms });
-  }, [sport, allMoveIds, allAreaIds, symptoms, redFlagTriggered]);
+  // Ranked separately per body area, so more than one injury can show up.
+  const analysis = useMemo(() => {
+    if (!sport) return { groups: [], topMatches: [] };
+    return analyze({ sport, moveIds: allMoveIds, areaIds: allAreaIds, symptoms, contact, redFlags, weightBearing });
+  }, [sport, allMoveIds, allAreaIds, symptoms, contact, redFlags, weightBearing]);
 
   const tierKey = useMemo(() => {
     if (!sport) return null;
-    return decideTier({ redFlags, weightBearing, topMatch: results[0] });
-  }, [redFlags, weightBearing, results, sport]);
+    return decideTier({ redFlags, weightBearing, topMatches: analysis.topMatches });
+  }, [redFlags, weightBearing, analysis, sport]);
 
   // Save (or update) this report each time the results screen is reached.
   const savedIdRef = useRef(null);
@@ -569,17 +581,21 @@ function ReportFlow({ onExit, onHistory }) {
       moveOther: moveOther && moveOther.trim() ? moveOther.trim() : null,
       bodyParts: areaLabels(allAreaIds),
       bodyPartOther: areaOther && areaOther.trim() ? areaOther.trim() : null,
+      contact,
       symptoms,
       weightBearing,
       redFlags,
       redFlagTriggered,
       tier: tierKey,
-      matches: results.map(r => ({
+      matches: analysis.groups.flatMap(g => g.matches.map((r, i) => ({
         name: r.injury_name,
+        area: g.label,
         bodyPart: r.body_part,
+        rank: i,
+        together: !!r.together,
         severity: r.severity ? r.severity.severity : null,
         recoveryWeeks: r.severity ? r.severity.recovery_time_avg : null,
-      })),
+      }))),
     });
   }, [step]);
 
@@ -589,7 +605,6 @@ function ReportFlow({ onExit, onHistory }) {
   const next = () => setStep(s => Math.min(s + 1, STEPS.length - 1));
   const back = () => {
     if (step === 0) onExit();
-    else if (step === 4 && redFlagTriggered) setStep(1);
     else setStep(s => s - 1);
   };
 
@@ -612,6 +627,8 @@ function ReportFlow({ onExit, onHistory }) {
           </div>
         </div>
       )}
+
+      {redFlagTriggered && (step === 2 || step === 3) && <EmergencyReminder redFlags={redFlags} />}
 
       {step === 0 && (
         <div>
@@ -654,10 +671,7 @@ function ReportFlow({ onExit, onHistory }) {
           </div>
           <Button
             disabled={!allRedFlagsAnswered}
-            onClick={() => {
-              if (Object.values(redFlags).some(v => v === 'yes')) setStep(4);
-              else next();
-            }}
+            onClick={next}
           >
             Continue <ArrowRight size={16} />
           </Button>
@@ -708,8 +722,16 @@ function ReportFlow({ onExit, onHistory }) {
             />
           )}
 
+          <h2 style={{ ...H2, marginTop: 22 }}>Was there contact?</h2>
+          <p style={{ ...SUB, marginBottom: 10 }}>Did it happen when you hit, or were hit by, someone or something?</p>
+          <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8, marginBottom: 6 }}>
+            {CONTACT_OPTIONS.map(o => (
+              <Chip key={o.key} on={contact === o.key} onClick={() => setContact(o.key)}>{o.label}</Chip>
+            ))}
+          </div>
+
           <h2 style={{ ...H2, marginTop: 22 }}>Where does it hurt?</h2>
-          <p style={{ ...SUB, marginBottom: 10 }}>Select all that apply. Pick the most specific spot you can.</p>
+          <p style={{ ...SUB, marginBottom: 10 }}>Select every spot that hurts, even if they're in different places. Pick the most specific spot you can.</p>
           {BODY_GROUPS.map(g => (
             <div key={g} style={{ marginBottom: 12 }}>
               <div style={{ fontSize: 11.5, fontWeight: 700, color: C.muted, letterSpacing: 0.4, textTransform: 'uppercase', marginBottom: 6 }}>{g}</div>
@@ -736,6 +758,7 @@ function ReportFlow({ onExit, onHistory }) {
           <div style={{ height: 10 }} />
           <Button
             disabled={
+              !contact ||
               (allMoveIds.length === 0 && !(moveOther || '').trim()) ||
               (allAreaIds.length === 0 && !(areaOther || '').trim())
             }
@@ -775,13 +798,13 @@ function ReportFlow({ onExit, onHistory }) {
       {step === 4 && tierKey && (
         <ResultsScreen
           tierKey={tierKey}
-          redFlagTriggered={redFlagTriggered}
-          results={results}
+          redFlags={redFlags}
+          groups={analysis.groups}
           onHistory={onHistory}
           onRestart={() => {
             savedIdRef.current = null;
             setStep(0); setSport(null); setRedFlags({}); setMoveIds([]); setMoveOther(null);
-            setAreaIds([]); setAreaOther(null); setWeightBearing(null); setSymptoms({});
+            setAreaIds([]); setAreaOther(null); setContact(null); setWeightBearing(null); setSymptoms({});
           }}
           onExit={onExit}
         />
@@ -790,9 +813,70 @@ function ReportFlow({ onExit, onHistory }) {
   );
 }
 
-function ResultsScreen({ tierKey, redFlagTriggered, results, onRestart, onExit, onHistory }) {
+function EmergencyReminder({ redFlags }) {
+  const callNow = redFlags.collapse === 'yes';
+  return (
+    <div style={{
+      background: TIERS.emergency.bg, border: `1.5px solid ${TIERS.emergency.color}`, borderRadius: 14,
+      padding: '11px 14px', marginBottom: 18, display: 'flex', gap: 10, alignItems: 'flex-start',
+    }}>
+      <AlertTriangle size={18} color={TIERS.emergency.color} style={{ flexShrink: 0, marginTop: 1 }} />
+      <div style={{ fontSize: 12.5, color: C.ink, lineHeight: 1.45 }}>
+        <b style={{ color: TIERS.emergency.color }}>
+          {callNow ? 'Call 911 first.' : 'Your safety answers point to emergency care.'}
+        </b>{' '}
+        Get help on the way before finishing this. These questions only help narrow down what it might be.
+      </div>
+    </div>
+  );
+}
+
+function MatchCard({ r, label }) {
+  return (
+    <Card style={{ padding: '15px 16px' }}>
+      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: 8 }}>
+        <div style={{ fontSize: 15, fontWeight: 600 }}>{r.injury_name}</div>
+        {label && (
+          <div style={{
+            fontSize: 11, fontWeight: 600, color: C.ink, padding: '2px 10px', borderRadius: 20, whiteSpace: 'nowrap',
+            background: label === 'Closest match' ? C.mint : '#FFE8C2',
+          }}>
+            {label}
+          </div>
+        )}
+      </div>
+      <div style={{ fontSize: 12, color: C.muted, marginTop: 2 }}>{r.body_part}</div>
+
+      {r.severity && (
+        <div style={{ display: 'flex', gap: 8, marginTop: 10, flexWrap: 'wrap' }}>
+          <div style={{ fontSize: 12, background: '#ECEAFB', borderRadius: 10, padding: '3px 10px' }}>
+            Typical severity: <b>{r.severity.severity}</b>
+          </div>
+          <div style={{ fontSize: 12, background: '#ECEAFB', borderRadius: 10, padding: '3px 10px' }}>
+            Recovery: <b>~{r.severity.recovery_time_avg} wk</b>
+          </div>
+        </div>
+      )}
+      {r.reasons.length > 0 && (
+        <div style={{ marginTop: 10, display: 'flex', flexDirection: 'column', gap: 4 }}>
+          {r.reasons.slice(0, 3).map((reason, i) => (
+            <div key={i} style={{ display: 'flex', gap: 6, fontSize: 12, color: C.ink }}>
+              <Check size={13} color={C.mintDeep} strokeWidth={3} style={{ marginTop: 2, flexShrink: 0 }} />
+              {reason}
+            </div>
+          ))}
+        </div>
+      )}
+    </Card>
+  );
+}
+
+function ResultsScreen({ tierKey, redFlags, groups, onRestart, onExit, onHistory }) {
   const tier = TIERS[tierKey];
   const Icon = tier.Icon;
+  const flagged = RED_FLAGS.filter(f => redFlags[f.key] === 'yes');
+  const isEmergency = tierKey === 'emergency';
+  const multiArea = groups.length > 1;
 
   return (
     <div>
@@ -810,52 +894,77 @@ function ResultsScreen({ tierKey, redFlagTriggered, results, onRestart, onExit, 
           </div>
         </div>
         <p style={{ fontSize: 13.5, color: C.ink, lineHeight: 1.55 }}>{tier.copy}</p>
+        {flagged.length > 0 && (
+          <div style={{ marginTop: 12, display: 'flex', flexDirection: 'column', gap: 8 }}>
+            <div style={{ fontSize: 12, fontWeight: 700, color: tier.color, textTransform: 'uppercase', letterSpacing: 0.4 }}>
+              While you wait for help
+            </div>
+            {flagged.map(f => (
+              <div key={f.key} style={{ display: 'flex', gap: 8, fontSize: 13, color: C.ink, lineHeight: 1.45 }}>
+                <ChevronRight size={15} color={tier.color} style={{ flexShrink: 0, marginTop: 2 }} />
+                <span><b>{f.short}:</b> {f.firstAid}</span>
+              </div>
+            ))}
+          </div>
+        )}
       </div>
 
-      {!redFlagTriggered && results.length > 0 && (
+      {groups.length > 0 && (
         <div style={{ marginBottom: 20 }}>
           <h2 style={H2}>What it could be</h2>
-          <p style={{ ...SUB, marginBottom: 12 }}>Ranked by how well it matches what you described. Not a diagnosis.</p>
-          <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
-            {results.map((r, idx) => (
-              <Card key={r.injury_id} style={{ padding: '15px 16px' }}>
-                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: 8 }}>
-                  <div style={{ fontSize: 15, fontWeight: 600 }}>{r.injury_name}</div>
-                  {idx === 0 && (
-                    <div style={{ fontSize: 11, fontWeight: 600, color: C.ink, background: C.mint, padding: '2px 10px', borderRadius: 20, whiteSpace: 'nowrap' }}>
-                      Closest match
+          <p style={{ ...SUB, marginBottom: 12 }}>
+            {isEmergency
+              ? "Shown for information only. It's not a reason to delay the care above. Not a diagnosis."
+              : 'Ranked by how well it matches what you described. Not a diagnosis.'}
+          </p>
+
+          {multiArea && (
+            <div style={{
+              display: 'flex', gap: 8, alignItems: 'flex-start', background: '#ECEAFB', borderRadius: 12,
+              padding: '10px 12px', marginBottom: 14, fontSize: 12.5, lineHeight: 1.45,
+            }}>
+              <Info size={16} color={C.purple} style={{ flexShrink: 0, marginTop: 1 }} />
+              <span>
+                You described problems in {groups.length} areas, so each one is checked on its own.
+                You may have more than one injury.
+              </span>
+            </div>
+          )}
+
+          <div style={{ display: 'flex', flexDirection: 'column', gap: 18 }}>
+            {groups.map(g => {
+              const top = g.matches[0];
+              const together = g.matches.filter(m => m.together);
+              return (
+                <div key={g.key}>
+                  {(multiArea || g.key === 'collapse') && (
+                    <div style={{ fontSize: 11.5, fontWeight: 700, color: C.muted, letterSpacing: 0.4, textTransform: 'uppercase', marginBottom: 8 }}>
+                      {[g.label, ...g.areaLabels.filter(l => l.toLowerCase() !== g.label.toLowerCase())].join(' · ')}
                     </div>
                   )}
-                </div>
-                <div style={{ fontSize: 12, color: C.muted, marginTop: 2 }}>{r.body_part}</div>
-
-                {r.severity && (
-                  <div style={{ display: 'flex', gap: 8, marginTop: 10, flexWrap: 'wrap' }}>
-                    <div style={{ fontSize: 12, background: '#ECEAFB', borderRadius: 10, padding: '3px 10px' }}>
-                      Typical severity: <b>{r.severity.severity}</b>
-                    </div>
-                    <div style={{ fontSize: 12, background: '#ECEAFB', borderRadius: 10, padding: '3px 10px' }}>
-                      Recovery: <b>~{r.severity.recovery_time_avg} wk</b>
-                    </div>
-                  </div>
-                )}
-                {r.reasons.length > 0 && (
-                  <div style={{ marginTop: 10, display: 'flex', flexDirection: 'column', gap: 4 }}>
-                    {r.reasons.slice(0, 3).map((reason, i) => (
-                      <div key={i} style={{ display: 'flex', gap: 6, fontSize: 12, color: C.ink }}>
-                        <Check size={13} color={C.mintDeep} strokeWidth={3} style={{ marginTop: 2, flexShrink: 0 }} />
-                        {reason}
-                      </div>
+                  {together.length > 0 && (
+                    <p style={{ fontSize: 12.5, color: C.ink, lineHeight: 1.45, marginBottom: 8 }}>
+                      These often happen together, so more than one could be involved:{' '}
+                      <b>{[top, ...together].map(m => m.injury_name).join(' + ')}</b>.
+                    </p>
+                  )}
+                  <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
+                    {g.matches.map((r, idx) => (
+                      <MatchCard
+                        key={r.injury_id}
+                        r={r}
+                        label={idx === 0 ? 'Closest match' : r.together ? 'May also be involved' : r.close ? 'Nearly as likely' : null}
+                      />
                     ))}
                   </div>
-                )}
-              </Card>
-            ))}
+                </div>
+              );
+            })}
           </div>
         </div>
       )}
 
-      {!redFlagTriggered && results.length === 0 && (
+      {groups.length === 0 && (
         <p style={{ fontSize: 13, color: C.muted, marginBottom: 20 }}>
           Nothing on file matched closely. That's not unusual, and it doesn't mean it's nothing.
           Use the guidance above either way.
@@ -918,7 +1027,9 @@ function ReportCard({ r }) {
   const tier = TIERS[r.tier];
   const when = formatWhen(r.savedAt || r.date);
   const matches = r.matches || (r.topInjury ? [{ name: r.topInjury }] : []);
-  const top = matches[0];
+  // Newer reports rank each body area separately; older ones are one list.
+  const tops = matches.some(m => m.rank !== undefined) ? matches.filter(m => m.rank === 0) : matches.slice(0, 1);
+  const areaCount = new Set(matches.map(m => m.area).filter(Boolean)).size;
   const hasDetail = !!(r.symptoms || r.redFlags);
   const flagged = r.redFlags ? RED_FLAGS.filter(f => r.redFlags[f.key] === 'yes') : [];
 
@@ -952,9 +1063,9 @@ function ReportCard({ r }) {
             <Clock size={12} /> Saved {when}
           </div>
         )}
-        {top && top.name && (
+        {tops.length > 0 && tops[0].name && (
           <div style={{ fontSize: 13, marginTop: 8 }}>
-            Closest match: <b>{top.name}</b>
+            {tops.length > 1 ? 'Closest matches' : 'Closest match'}: <b>{tops.map(t => t.name).join(', ')}</b>
           </div>
         )}
         {tier && (
@@ -1026,6 +1137,12 @@ function ReportCard({ r }) {
                 label="Could bear weight"
                 value={ANSWER_LABEL[r.weightBearing] || 'Not answered'}
               />
+              {r.contact && (
+                <DetailRow
+                  label="Contact"
+                  value={(CONTACT_OPTIONS.find(o => o.key === r.contact) || {}).label || 'Not answered'}
+                />
+              )}
             </DetailSection>
           )}
 
@@ -1037,7 +1154,7 @@ function ReportCard({ r }) {
                     <div style={{ fontSize: 13, fontWeight: 600 }}>{m.name}</div>
                     {(m.bodyPart || m.severity) && (
                       <div style={{ fontSize: 11.5, color: C.muted }}>
-                        {[m.bodyPart, m.severity && `${m.severity} typical`, m.recoveryWeeks != null && `~${m.recoveryWeeks} wk recovery`]
+                        {[areaCount > 1 && m.area, m.bodyPart, m.together && 'may also be involved', m.severity && `${m.severity} typical`, m.recoveryWeeks != null && `~${m.recoveryWeeks} wk recovery`]
                           .filter(Boolean).join(', ')}
                       </div>
                     )}
@@ -1050,7 +1167,7 @@ function ReportCard({ r }) {
           {r.redFlagTriggered && matches.length === 0 && (
             <DetailSection title="What it could be">
               <p style={{ fontSize: 12.5, color: C.muted }}>
-                The safety check flagged this, so the report went straight to emergency guidance without matching injuries.
+                The safety check flagged this, so the report went straight to emergency guidance without matching injuries. (Reports saved now always include possible injuries.)
               </p>
             </DetailSection>
           )}
@@ -1122,6 +1239,7 @@ function HistoryScreen({ onBack, onReport }) {
 export default function SidelineApp() {
   const [screen, setScreen] = useState('welcome');
   const home = () => setScreen('home');
+  useEffect(() => { window.scrollTo(0, 0); }, [screen]);
 
   if (screen === 'welcome') {
     return <Welcome onStart={home} onReport={() => setScreen('report')} />;

@@ -1,0 +1,3022 @@
+[
+ {
+  "num": 1,
+  "sport": "Basketball",
+  "athlete": "Kevin Ware, Louisville (2013 NCAA Elite Eight)",
+  "truth": "Open (compound) tibia/fibula fracture",
+  "action": "Landing after leaping to contest a 3-point shot",
+  "bodyText": "Lower leg (tibia & fibula)",
+  "redFlags": {
+   "deformity": "yes",
+   "nerve": "unsure",
+   "wound": "yes",
+   "loc": "no",
+   "collapse": "no"
+  },
+  "moveIds": [
+   3,
+   6
+  ],
+  "areaIds": [
+   "shin"
+  ],
+  "contact": "none",
+  "symptoms": {
+   "swelling": "yes",
+   "bruising": "unsure",
+   "instability": "yes",
+   "limited_range_of_motion": "yes",
+   "audible_pop": "unsure"
+  },
+  "weightBearing": "no",
+  "expect": {
+   "kind": "top",
+   "patterns": [
+    "tibia"
+   ]
+  },
+  "sheetResult": "Correct"
+ },
+ {
+  "num": 2,
+  "sport": "Basketball",
+  "athlete": "Paul George, Team USA scrimmage (Aug 2014)",
+  "truth": "Open tibia/fibula fracture",
+  "action": "Landing after a block attempt, foot hit the basket-support base",
+  "bodyText": "Lower leg (tibia & fibula)",
+  "redFlags": {
+   "deformity": "yes",
+   "nerve": "unsure",
+   "wound": "yes",
+   "loc": "no",
+   "collapse": "no"
+  },
+  "moveIds": [
+   3,
+   6
+  ],
+  "areaIds": [
+   "shin"
+  ],
+  "contact": "object",
+  "symptoms": {
+   "swelling": "yes",
+   "bruising": "unsure",
+   "instability": "yes",
+   "limited_range_of_motion": "yes",
+   "audible_pop": "unsure"
+  },
+  "weightBearing": "no",
+  "expect": {
+   "kind": "top",
+   "patterns": [
+    "tibia"
+   ]
+  },
+  "sheetResult": "Correct"
+ },
+ {
+  "num": 3,
+  "sport": "Basketball",
+  "athlete": "Gordon Hayward, Celtics (Oct 2017, opening night)",
+  "truth": "Fractured left tibia with dislocated ankle",
+  "action": "Landing after an alley-oop attempt",
+  "bodyText": "Lower leg & ankle",
+  "redFlags": {
+   "deformity": "yes",
+   "nerve": "unsure",
+   "wound": "no",
+   "loc": "no",
+   "collapse": "no"
+  },
+  "moveIds": [
+   3
+  ],
+  "areaIds": [
+   "shin",
+   "ankle"
+  ],
+  "contact": "none",
+  "symptoms": {
+   "swelling": "yes",
+   "bruising": "unsure",
+   "instability": "yes",
+   "limited_range_of_motion": "yes",
+   "audible_pop": "unsure"
+  },
+  "weightBearing": "no",
+  "expect": {
+   "kind": "top",
+   "patterns": [
+    "tibia|ankle fracture"
+   ]
+  },
+  "sheetResult": "Correct"
+ },
+ {
+  "num": 4,
+  "sport": "Basketball",
+  "athlete": "Kevin Durant, Warriors (2019 Finals, Game 5)",
+  "truth": "Ruptured right Achilles tendon",
+  "action": "Driving/planting on right foot",
+  "bodyText": "Achilles tendon",
+  "redFlags": {
+   "deformity": "no",
+   "nerve": "no",
+   "wound": "no",
+   "loc": "no",
+   "collapse": "no"
+  },
+  "moveIds": [
+   1,
+   4
+  ],
+  "areaIds": [
+   "achilles"
+  ],
+  "contact": "none",
+  "symptoms": {
+   "swelling": "yes",
+   "bruising": "unsure",
+   "instability": "yes",
+   "limited_range_of_motion": "yes",
+   "audible_pop": "yes"
+  },
+  "weightBearing": "no",
+  "expect": {
+   "kind": "top",
+   "patterns": [
+    "achilles.*rupture"
+   ]
+  },
+  "sheetResult": "Correct"
+ },
+ {
+  "num": 5,
+  "sport": "Basketball",
+  "athlete": "Klay Thompson, Warriors (2019 Finals, Game 6)",
+  "truth": "Torn left ACL",
+  "action": "Landing on a fast-break dunk attempt after contact",
+  "bodyText": "Knee (ACL)",
+  "redFlags": {
+   "deformity": "no",
+   "nerve": "no",
+   "wound": "no",
+   "loc": "no",
+   "collapse": "no"
+  },
+  "moveIds": [
+   3,
+   8
+  ],
+  "areaIds": [
+   "knee"
+  ],
+  "contact": "player",
+  "symptoms": {
+   "swelling": "yes",
+   "bruising": "unsure",
+   "instability": "yes",
+   "limited_range_of_motion": "yes",
+   "audible_pop": "unsure"
+  },
+  "weightBearing": "no",
+  "expect": {
+   "kind": "top",
+   "patterns": [
+    "acl"
+   ]
+  },
+  "sheetResult": "Correct"
+ },
+ {
+  "num": 6,
+  "sport": "Basketball",
+  "athlete": "Derrick Rose, Bulls (Apr 2012 playoffs, Game 1)",
+  "truth": "Torn left ACL",
+  "action": "Jump stop while driving to the basket",
+  "bodyText": "Knee (ACL)",
+  "redFlags": {
+   "deformity": "no",
+   "nerve": "no",
+   "wound": "no",
+   "loc": "no",
+   "collapse": "no"
+  },
+  "moveIds": [
+   1,
+   3
+  ],
+  "areaIds": [
+   "knee"
+  ],
+  "contact": "none",
+  "symptoms": {
+   "swelling": "yes",
+   "bruising": "unsure",
+   "instability": "yes",
+   "limited_range_of_motion": "yes",
+   "audible_pop": "unsure"
+  },
+  "weightBearing": "no",
+  "expect": {
+   "kind": "top",
+   "patterns": [
+    "acl"
+   ]
+  },
+  "sheetResult": "Correct"
+ },
+ {
+  "num": 7,
+  "sport": "Basketball",
+  "athlete": "Kyrie Irving, Cavaliers (2015 Finals, Game 1)",
+  "truth": "Fractured left kneecap (patella)",
+  "action": "Cutting/changing direction while dribbling",
+  "bodyText": "Knee (kneecap)",
+  "redFlags": {
+   "deformity": "no",
+   "nerve": "no",
+   "wound": "no",
+   "loc": "no",
+   "collapse": "no"
+  },
+  "moveIds": [
+   4,
+   1
+  ],
+  "areaIds": [
+   "kneecap"
+  ],
+  "contact": "none",
+  "symptoms": {
+   "swelling": "yes",
+   "bruising": "unsure",
+   "instability": "yes",
+   "limited_range_of_motion": "yes",
+   "audible_pop": "unsure"
+  },
+  "weightBearing": "no",
+  "expect": {
+   "kind": "top",
+   "patterns": [
+    "patellar \\(kneecap\\) fracture"
+   ]
+  },
+  "sheetResult": "Correct"
+ },
+ {
+  "num": 8,
+  "sport": "Basketball",
+  "athlete": "Kawhi Leonard, Spurs (2017 West Finals, Game 1)",
+  "truth": "Severe left ankle sprain",
+  "action": "Landing after a jump shot onto an opponent’s foot",
+  "bodyText": "Ankle",
+  "redFlags": {
+   "deformity": "no",
+   "nerve": "no",
+   "wound": "no",
+   "loc": "no",
+   "collapse": "no"
+  },
+  "moveIds": [
+   3,
+   2
+  ],
+  "areaIds": [
+   "ankle"
+  ],
+  "contact": "player",
+  "symptoms": {
+   "swelling": "yes",
+   "bruising": "yes",
+   "instability": "yes",
+   "limited_range_of_motion": "yes",
+   "audible_pop": "unsure"
+  },
+  "weightBearing": "no",
+  "expect": {
+   "kind": "top",
+   "patterns": [
+    "ankle sprain"
+   ]
+  },
+  "sheetResult": "Correct"
+ },
+ {
+  "num": 9,
+  "sport": "Basketball",
+  "athlete": "Zion Williamson, Duke (Feb 2019 vs. North Carolina)",
+  "truth": "Mild (Grade 1) knee sprain",
+  "action": "Planting/driving as shoe blew out",
+  "bodyText": "Knee",
+  "redFlags": {
+   "deformity": "no",
+   "nerve": "no",
+   "wound": "no",
+   "loc": "no",
+   "collapse": "no"
+  },
+  "moveIds": [
+   1,
+   4
+  ],
+  "areaIds": [
+   "knee"
+  ],
+  "contact": "none",
+  "symptoms": {
+   "swelling": "yes",
+   "bruising": "unsure",
+   "instability": "yes",
+   "limited_range_of_motion": "yes",
+   "audible_pop": "unsure"
+  },
+  "weightBearing": "no",
+  "expect": {
+   "kind": "top",
+   "patterns": [
+    "mcl|lcl|hyperext"
+   ]
+  },
+  "sheetResult": "ACL Tear / Patellar Fracture"
+ },
+ {
+  "num": 10,
+  "sport": "Basketball",
+  "athlete": "Shaun Livingston, Clippers (Feb 2007)",
+  "truth": "Dislocated knee with multiple torn ligaments and meniscus damage",
+  "action": "Landing awkwardly from a layup/dunk attempt (hyperextension)",
+  "bodyText": "Knee (ACL, PCL, MCL, patella, meniscus)",
+  "redFlags": {
+   "deformity": "yes",
+   "nerve": "unsure",
+   "wound": "no",
+   "loc": "no",
+   "collapse": "no"
+  },
+  "moveIds": [
+   3,
+   1
+  ],
+  "areaIds": [
+   "knee",
+   "kneecap"
+  ],
+  "contact": "none",
+  "symptoms": {
+   "swelling": "yes",
+   "bruising": "yes",
+   "instability": "yes",
+   "limited_range_of_motion": "yes",
+   "audible_pop": "unsure"
+  },
+  "weightBearing": "no",
+  "expect": {
+   "kind": "top",
+   "patterns": [
+    "knee dislocation"
+   ]
+  },
+  "sheetResult": "Correct"
+ },
+ {
+  "num": 11,
+  "sport": "Basketball",
+  "athlete": "Willis Reed, Knicks (1970 Finals, Game 5)",
+  "truth": "Torn thigh muscle (as reported at the time)",
+  "action": "Driving/pivoting near the basket",
+  "bodyText": "Right thigh/hip (muscle tear reported)",
+  "redFlags": {
+   "deformity": "no",
+   "nerve": "unsure",
+   "wound": "no",
+   "loc": "no",
+   "collapse": "no"
+  },
+  "moveIds": [
+   1,
+   4
+  ],
+  "areaIds": [
+   "quad",
+   "hip_groin"
+  ],
+  "contact": "none",
+  "symptoms": {
+   "swelling": "unsure",
+   "bruising": "unsure",
+   "instability": "unsure",
+   "limited_range_of_motion": "yes",
+   "audible_pop": "unsure"
+  },
+  "weightBearing": "no",
+  "expect": {
+   "kind": "top",
+   "patterns": [
+    "thigh muscle"
+   ]
+  },
+  "sheetResult": "Quadriceps Strain"
+ },
+ {
+  "num": 12,
+  "sport": "Basketball",
+  "athlete": "Isiah Thomas, Pistons (1988 Finals, Game 6)",
+  "truth": "Severe ankle sprain",
+  "action": "Landing awkwardly/rolling ankle in 3rd quarter",
+  "bodyText": "Ankle",
+  "redFlags": {
+   "deformity": "no",
+   "nerve": "no",
+   "wound": "no",
+   "loc": "no",
+   "collapse": "no"
+  },
+  "moveIds": [
+   3
+  ],
+  "areaIds": [
+   "ankle"
+  ],
+  "contact": "none",
+  "symptoms": {
+   "swelling": "yes",
+   "bruising": "yes",
+   "instability": "yes",
+   "limited_range_of_motion": "yes",
+   "audible_pop": "unsure"
+  },
+  "weightBearing": "yes",
+  "expect": {
+   "kind": "top",
+   "patterns": [
+    "ankle sprain"
+   ]
+  },
+  "sheetResult": "Correct"
+ },
+ {
+  "num": 13,
+  "sport": "Basketball",
+  "athlete": "Jamal Murray, Nuggets (Apr 2021)",
+  "truth": "Torn left ACL",
+  "action": "Planting/pivoting on defense with awkward landing",
+  "bodyText": "Knee (ACL)",
+  "redFlags": {
+   "deformity": "no",
+   "nerve": "no",
+   "wound": "no",
+   "loc": "no",
+   "collapse": "no"
+  },
+  "moveIds": [
+   4,
+   3
+  ],
+  "areaIds": [
+   "knee"
+  ],
+  "contact": "none",
+  "symptoms": {
+   "swelling": "yes",
+   "bruising": "unsure",
+   "instability": "yes",
+   "limited_range_of_motion": "yes",
+   "audible_pop": "yes"
+  },
+  "weightBearing": "no",
+  "expect": {
+   "kind": "top",
+   "patterns": [
+    "acl"
+   ]
+  },
+  "sheetResult": "Correct"
+ },
+ {
+  "num": 14,
+  "sport": "Basketball",
+  "athlete": "Giannis Antetokounmpo, Bucks (2021 East Finals, Game 4)",
+  "truth": "Left knee hyperextension (sprain), no structural tear",
+  "action": "Contesting a play; leg hyperextended",
+  "bodyText": "Knee",
+  "redFlags": {
+   "deformity": "no",
+   "nerve": "no",
+   "wound": "no",
+   "loc": "no",
+   "collapse": "no"
+  },
+  "moveIds": [
+   6,
+   3
+  ],
+  "areaIds": [
+   "knee"
+  ],
+  "contact": "player",
+  "symptoms": {
+   "swelling": "yes",
+   "bruising": "unsure",
+   "instability": "yes",
+   "limited_range_of_motion": "yes",
+   "audible_pop": "unsure"
+  },
+  "weightBearing": "no",
+  "expect": {
+   "kind": "top",
+   "patterns": [
+    "hyperext"
+   ]
+  },
+  "sheetResult": "Correct"
+ },
+ {
+  "num": 15,
+  "sport": "Basketball",
+  "athlete": "Stephen Curry, Warriors (Oct 2019)",
+  "truth": "Broken left hand",
+  "action": "Falling/landing on outstretched hand after contact",
+  "bodyText": "Left hand (second metacarpal)",
+  "redFlags": {
+   "deformity": "no",
+   "nerve": "no",
+   "wound": "no",
+   "loc": "no",
+   "collapse": "no"
+  },
+  "moveIds": [
+   7
+  ],
+  "areaIds": [
+   "hand"
+  ],
+  "contact": "player",
+  "symptoms": {
+   "swelling": "yes",
+   "bruising": "yes",
+   "instability": "yes",
+   "limited_range_of_motion": "yes",
+   "audible_pop": "unsure"
+  },
+  "weightBearing": "no",
+  "expect": {
+   "kind": "top",
+   "patterns": [
+    "hand fracture"
+   ]
+  },
+  "sheetResult": "Correct"
+ },
+ {
+  "num": 16,
+  "sport": "Basketball",
+  "athlete": "Blake Griffin, Clippers (Oct 2009 preseason)",
+  "truth": "Stress fracture of left patella",
+  "action": "Landing after a dunk attempt",
+  "bodyText": "Knee (kneecap)",
+  "redFlags": {
+   "deformity": "no",
+   "nerve": "no",
+   "wound": "no",
+   "loc": "no",
+   "collapse": "no"
+  },
+  "moveIds": [
+   3,
+   1
+  ],
+  "areaIds": [
+   "kneecap"
+  ],
+  "contact": "none",
+  "symptoms": {
+   "swelling": "yes",
+   "bruising": "unsure",
+   "instability": "no",
+   "limited_range_of_motion": "yes",
+   "audible_pop": "unsure"
+  },
+  "weightBearing": "no",
+  "expect": {
+   "kind": "top",
+   "patterns": [
+    "patellar \\(kneecap\\) fracture"
+   ]
+  },
+  "sheetResult": "Knee Hyperextension, but it got patellar fracture at second"
+ },
+ {
+  "num": 17,
+  "sport": "Basketball",
+  "athlete": "Kobe Bryant, Lakers (Apr 2013)",
+  "truth": "Torn left Achilles",
+  "action": "Driving/cutting to the basket",
+  "bodyText": "Achilles tendon",
+  "redFlags": {
+   "deformity": "no",
+   "nerve": "no",
+   "wound": "no",
+   "loc": "no",
+   "collapse": "no"
+  },
+  "moveIds": [
+   1,
+   4
+  ],
+  "areaIds": [
+   "achilles"
+  ],
+  "contact": "none",
+  "symptoms": {
+   "swelling": "yes",
+   "bruising": "unsure",
+   "instability": "yes",
+   "limited_range_of_motion": "yes",
+   "audible_pop": "yes"
+  },
+  "weightBearing": "no",
+  "expect": {
+   "kind": "top",
+   "patterns": [
+    "achilles.*rupture"
+   ]
+  },
+  "sheetResult": "Achilles Tendon Rupture"
+ },
+ {
+  "num": 18,
+  "sport": "Basketball",
+  "athlete": "Victor Oladipo, Pacers (Jan 2019)",
+  "truth": "Ruptured right quadriceps tendon",
+  "action": "Planting/landing while defending a play",
+  "bodyText": "Quadriceps tendon (knee)",
+  "redFlags": {
+   "deformity": "no",
+   "nerve": "no",
+   "wound": "no",
+   "loc": "no",
+   "collapse": "no"
+  },
+  "moveIds": [
+   3,
+   6
+  ],
+  "areaIds": [
+   "kneecap",
+   "quad"
+  ],
+  "contact": "none",
+  "symptoms": {
+   "swelling": "yes",
+   "bruising": "unsure",
+   "instability": "yes",
+   "limited_range_of_motion": "yes",
+   "audible_pop": "yes"
+  },
+  "weightBearing": "no",
+  "expect": {
+   "kind": "top",
+   "patterns": [
+    "quadriceps tendon rupture"
+   ]
+  },
+  "sheetResult": "Correct"
+ },
+ {
+  "num": 19,
+  "sport": "Basketball",
+  "athlete": "Ricky Rubio, Timberwolves (Mar 2012)",
+  "truth": "Torn ACL and LCL",
+  "action": "Fast-break contact/collision with another player",
+  "bodyText": "Knee (ACL & LCL)",
+  "redFlags": {
+   "deformity": "no",
+   "nerve": "no",
+   "wound": "no",
+   "loc": "no",
+   "collapse": "no"
+  },
+  "moveIds": [
+   8,
+   5
+  ],
+  "areaIds": [
+   "knee"
+  ],
+  "contact": "player",
+  "symptoms": {
+   "swelling": "yes",
+   "bruising": "unsure",
+   "instability": "yes",
+   "limited_range_of_motion": "yes",
+   "audible_pop": "unsure"
+  },
+  "weightBearing": "no",
+  "expect": {
+   "kind": "both",
+   "patterns": [
+    "acl",
+    "lcl"
+   ]
+  },
+  "sheetResult": "MCL Sprain"
+ },
+ {
+  "num": 20,
+  "sport": "Basketball",
+  "athlete": "Yao Ming, Rockets (May 2009 playoffs)",
+  "truth": "Stress fracture of left foot",
+  "action": "Running/jumping during a playoff game",
+  "bodyText": "Left foot (navicular)",
+  "redFlags": {
+   "deformity": "no",
+   "nerve": "no",
+   "wound": "no",
+   "loc": "no",
+   "collapse": "no"
+  },
+  "moveIds": [
+   8,
+   3
+  ],
+  "areaIds": [
+   "foot"
+  ],
+  "contact": "none",
+  "symptoms": {
+   "swelling": "unsure",
+   "bruising": "unsure",
+   "instability": "unsure",
+   "limited_range_of_motion": "yes",
+   "audible_pop": "unsure"
+  },
+  "weightBearing": "no",
+  "expect": {
+   "kind": "top",
+   "patterns": [
+    "foot (stress )?fracture"
+   ]
+  },
+  "sheetResult": "Correct"
+ },
+ {
+  "num": 21,
+  "sport": "Football",
+  "athlete": "Joe Theismann, Washington (Nov 1985)",
+  "truth": "Open (compound) tibia/fibula fracture",
+  "action": "Being sacked and driven to the ground by Lawrence Taylor",
+  "bodyText": "Lower leg (tibia & fibula)",
+  "redFlags": {
+   "deformity": "yes",
+   "nerve": "unsure",
+   "wound": "yes",
+   "loc": "no",
+   "collapse": "no"
+  },
+  "moveIds": [
+   32
+  ],
+  "areaIds": [
+   "shin"
+  ],
+  "contact": "player",
+  "symptoms": {
+   "swelling": "yes",
+   "bruising": "unsure",
+   "instability": "yes",
+   "limited_range_of_motion": "yes",
+   "audible_pop": "yes"
+  },
+  "weightBearing": "no",
+  "expect": {
+   "kind": "top",
+   "patterns": [
+    "tibia"
+   ]
+  },
+  "sheetResult": "Correct"
+ },
+ {
+  "num": 22,
+  "sport": "Football",
+  "athlete": "Marcus Lattimore, South Carolina (Oct 2012)",
+  "truth": "Severe knee injury with multiple torn ligaments",
+  "action": "Being tackled while carrying the ball",
+  "bodyText": "Knee",
+  "redFlags": {
+   "deformity": "yes",
+   "nerve": "unsure",
+   "wound": "no",
+   "loc": "no",
+   "collapse": "no"
+  },
+  "moveIds": [
+   32
+  ],
+  "areaIds": [
+   "knee"
+  ],
+  "contact": "player",
+  "symptoms": {
+   "swelling": "yes",
+   "bruising": "unsure",
+   "instability": "yes",
+   "limited_range_of_motion": "yes",
+   "audible_pop": "unsure"
+  },
+  "weightBearing": "no",
+  "expect": {
+   "kind": "top",
+   "patterns": [
+    "knee dislocation"
+   ]
+  },
+  "sheetResult": "Correct"
+ },
+ {
+  "num": 23,
+  "sport": "Football",
+  "athlete": "Damar Hamlin, Bills (Jan 2023)",
+  "truth": "Cardiac arrest (commotio cordis suspected)",
+  "action": "Tackling an opponent (chest impact)",
+  "bodyText": "Chest / heart",
+  "redFlags": {
+   "deformity": "no",
+   "nerve": "no",
+   "wound": "no",
+   "loc": "no",
+   "collapse": "yes"
+  },
+  "moveIds": [
+   17
+  ],
+  "areaIds": [
+   "chest"
+  ],
+  "contact": "player",
+  "symptoms": {
+   "swelling": "no",
+   "bruising": "no",
+   "instability": "no",
+   "limited_range_of_motion": "no",
+   "audible_pop": "no"
+  },
+  "weightBearing": "no",
+  "expect": {
+   "kind": "top",
+   "patterns": [
+    "cardiac"
+   ]
+  },
+  "sheetResult": "Correct"
+ },
+ {
+  "num": 24,
+  "sport": "Football",
+  "athlete": "Ryan Shazier, Steelers (Dec 2017)",
+  "truth": "Spinal cord contusion with spinal stabilization surgery",
+  "action": "Tackling with head lowered",
+  "bodyText": "Spine (lumbar)",
+  "redFlags": {
+   "deformity": "no",
+   "nerve": "yes",
+   "wound": "no",
+   "loc": "no",
+   "collapse": "no"
+  },
+  "moveIds": [
+   17
+  ],
+  "areaIds": [
+   "lower_back"
+  ],
+  "contact": "player",
+  "symptoms": {
+   "swelling": "unsure",
+   "bruising": "unsure",
+   "instability": "yes",
+   "limited_range_of_motion": "yes",
+   "audible_pop": "unsure"
+  },
+  "weightBearing": "no",
+  "expect": {
+   "kind": "top",
+   "patterns": [
+    "spinal"
+   ]
+  },
+  "sheetResult": "Correct"
+ },
+ {
+  "num": 25,
+  "sport": "Football",
+  "athlete": "Tua Tagovailoa, Dolphins (Sept 29, 2022)",
+  "truth": "Concussion",
+  "action": "Being sacked and thrown to the turf",
+  "bodyText": "Head / neck",
+  "redFlags": {
+   "deformity": "no",
+   "nerve": "unsure",
+   "wound": "no",
+   "loc": "yes",
+   "collapse": "no"
+  },
+  "moveIds": [
+   32
+  ],
+  "areaIds": [
+   "head",
+   "neck"
+  ],
+  "contact": "player",
+  "symptoms": {
+   "swelling": "no",
+   "bruising": "no",
+   "instability": "no",
+   "limited_range_of_motion": "no",
+   "audible_pop": "no"
+  },
+  "weightBearing": "no",
+  "expect": {
+   "kind": "top",
+   "patterns": [
+    "concussion"
+   ]
+  },
+  "sheetResult": "Correct"
+ },
+ {
+  "num": 26,
+  "sport": "Football",
+  "athlete": "Aaron Rodgers, Jets (Sept 2023)",
+  "truth": "Torn left Achilles",
+  "action": "Scrambling while being pressured/sacked",
+  "bodyText": "Achilles tendon",
+  "redFlags": {
+   "deformity": "no",
+   "nerve": "no",
+   "wound": "no",
+   "loc": "no",
+   "collapse": "no"
+  },
+  "moveIds": [
+   19,
+   32
+  ],
+  "areaIds": [
+   "achilles"
+  ],
+  "contact": "player",
+  "symptoms": {
+   "swelling": "yes",
+   "bruising": "unsure",
+   "instability": "yes",
+   "limited_range_of_motion": "yes",
+   "audible_pop": "unsure"
+  },
+  "weightBearing": "no",
+  "expect": {
+   "kind": "top",
+   "patterns": [
+    "achilles.*rupture"
+   ]
+  },
+  "sheetResult": "Correct"
+ },
+ {
+  "num": 27,
+  "sport": "Football",
+  "athlete": "Dak Prescott, Cowboys (Oct 2020)",
+  "truth": "Open (compound) fracture and dislocation of right ankle",
+  "action": "Being tackled low on a run",
+  "bodyText": "Ankle",
+  "redFlags": {
+   "deformity": "yes",
+   "nerve": "unsure",
+   "wound": "yes",
+   "loc": "no",
+   "collapse": "no"
+  },
+  "moveIds": [
+   32
+  ],
+  "areaIds": [
+   "ankle"
+  ],
+  "contact": "player",
+  "symptoms": {
+   "swelling": "yes",
+   "bruising": "unsure",
+   "instability": "yes",
+   "limited_range_of_motion": "yes",
+   "audible_pop": "unsure"
+  },
+  "weightBearing": "no",
+  "expect": {
+   "kind": "top",
+   "patterns": [
+    "ankle fracture"
+   ]
+  },
+  "sheetResult": "Correct"
+ },
+ {
+  "num": 28,
+  "sport": "Football",
+  "athlete": "Patrick Mahomes, Chiefs (Jan 2023 playoffs)",
+  "truth": "Right high ankle sprain",
+  "action": "Scrambling; foot caught while being tackled",
+  "bodyText": "Ankle (high ankle sprain)",
+  "redFlags": {
+   "deformity": "no",
+   "nerve": "no",
+   "wound": "no",
+   "loc": "no",
+   "collapse": "no"
+  },
+  "moveIds": [
+   19,
+   32
+  ],
+  "areaIds": [
+   "ankle"
+  ],
+  "contact": "player",
+  "symptoms": {
+   "swelling": "yes",
+   "bruising": "unsure",
+   "instability": "yes",
+   "limited_range_of_motion": "yes",
+   "audible_pop": "unsure"
+  },
+  "weightBearing": "no",
+  "expect": {
+   "kind": "top",
+   "patterns": [
+    "ankle sprain"
+   ]
+  },
+  "sheetResult": "Correct"
+ },
+ {
+  "num": 29,
+  "sport": "Football",
+  "athlete": "Tom Brady, Patriots (Sept 2008)",
+  "truth": "Torn ACL and MCL",
+  "action": "Throwing; low hit from Bernard Pollard",
+  "bodyText": "Knee (ACL & MCL)",
+  "redFlags": {
+   "deformity": "no",
+   "nerve": "no",
+   "wound": "no",
+   "loc": "no",
+   "collapse": "no"
+  },
+  "moveIds": [
+   31,
+   32
+  ],
+  "areaIds": [
+   "knee"
+  ],
+  "contact": "player",
+  "symptoms": {
+   "swelling": "yes",
+   "bruising": "unsure",
+   "instability": "yes",
+   "limited_range_of_motion": "yes",
+   "audible_pop": "unsure"
+  },
+  "weightBearing": "no",
+  "expect": {
+   "kind": "both",
+   "patterns": [
+    "acl",
+    "mcl"
+   ]
+  },
+  "sheetResult": "MCL Sprain"
+ },
+ {
+  "num": 30,
+  "sport": "Football",
+  "athlete": "Carson Palmer, Bengals (Jan 2006 playoffs)",
+  "truth": "Torn ACL, MCL and cartilage damage",
+  "action": "Throwing; low hit from Kimo von Oelhoffen",
+  "bodyText": "Knee (ACL, MCL, cartilage)",
+  "redFlags": {
+   "deformity": "no",
+   "nerve": "no",
+   "wound": "no",
+   "loc": "no",
+   "collapse": "no"
+  },
+  "moveIds": [
+   31,
+   32
+  ],
+  "areaIds": [
+   "knee"
+  ],
+  "contact": "player",
+  "symptoms": {
+   "swelling": "yes",
+   "bruising": "unsure",
+   "instability": "yes",
+   "limited_range_of_motion": "yes",
+   "audible_pop": "unsure"
+  },
+  "weightBearing": "no",
+  "expect": {
+   "kind": "both",
+   "patterns": [
+    "acl",
+    "mcl"
+   ]
+  },
+  "sheetResult": "MCL Sprain"
+ },
+ {
+  "num": 31,
+  "sport": "Football",
+  "athlete": "Julian Edelman, Patriots (Aug 2017 preseason)",
+  "truth": "Torn ACL",
+  "action": "Cutting (non-contact)",
+  "bodyText": "Knee (ACL)",
+  "redFlags": {
+   "deformity": "no",
+   "nerve": "no",
+   "wound": "no",
+   "loc": "no",
+   "collapse": "no"
+  },
+  "moveIds": [
+   18
+  ],
+  "areaIds": [
+   "knee"
+  ],
+  "contact": "none",
+  "symptoms": {
+   "swelling": "yes",
+   "bruising": "unsure",
+   "instability": "yes",
+   "limited_range_of_motion": "yes",
+   "audible_pop": "unsure"
+  },
+  "weightBearing": "no",
+  "expect": {
+   "kind": "top",
+   "patterns": [
+    "acl"
+   ]
+  },
+  "sheetResult": "Correct"
+ },
+ {
+  "num": 32,
+  "sport": "Football",
+  "athlete": "Kevin Everett, Bills (Sept 2007)",
+  "truth": "Cervical fracture/dislocation with spinal cord injury",
+  "action": "Tackling head-first on a kickoff",
+  "bodyText": "Neck (cervical spine)",
+  "redFlags": {
+   "deformity": "no",
+   "nerve": "yes",
+   "wound": "no",
+   "loc": "unsure",
+   "collapse": "no"
+  },
+  "moveIds": [
+   17
+  ],
+  "areaIds": [
+   "neck"
+  ],
+  "contact": "player",
+  "symptoms": {
+   "swelling": "unsure",
+   "bruising": "unsure",
+   "instability": "yes",
+   "limited_range_of_motion": "yes",
+   "audible_pop": "unsure"
+  },
+  "weightBearing": "no",
+  "expect": {
+   "kind": "top",
+   "patterns": [
+    "spinal"
+   ]
+  },
+  "sheetResult": "Correct"
+ },
+ {
+  "num": 33,
+  "sport": "Football",
+  "athlete": "Mike Utley, Lions (Nov 1991)",
+  "truth": "Cervical fracture with spinal cord injury (paralysis)",
+  "action": "Pass blocking with head down",
+  "bodyText": "Neck (cervical spine)",
+  "redFlags": {
+   "deformity": "no",
+   "nerve": "yes",
+   "wound": "no",
+   "loc": "no",
+   "collapse": "no"
+  },
+  "moveIds": [
+   20
+  ],
+  "areaIds": [
+   "neck"
+  ],
+  "contact": "player",
+  "symptoms": {
+   "swelling": "unsure",
+   "bruising": "unsure",
+   "instability": "yes",
+   "limited_range_of_motion": "yes",
+   "audible_pop": "unsure"
+  },
+  "weightBearing": "no",
+  "expect": {
+   "kind": "top",
+   "patterns": [
+    "spinal"
+   ]
+  },
+  "sheetResult": "Correct"
+ },
+ {
+  "num": 34,
+  "sport": "Football",
+  "athlete": "Dennis Byrd, Jets (Nov 1992)",
+  "truth": "Fractured cervical vertebra with spinal cord injury",
+  "action": "Collided head-first with a teammate while rushing the passer",
+  "bodyText": "Neck (cervical spine)",
+  "redFlags": {
+   "deformity": "no",
+   "nerve": "yes",
+   "wound": "no",
+   "loc": "no",
+   "collapse": "no"
+  },
+  "moveIds": [
+   17
+  ],
+  "areaIds": [
+   "neck"
+  ],
+  "contact": "player",
+  "symptoms": {
+   "swelling": "unsure",
+   "bruising": "unsure",
+   "instability": "yes",
+   "limited_range_of_motion": "yes",
+   "audible_pop": "unsure"
+  },
+  "weightBearing": "no",
+  "expect": {
+   "kind": "top",
+   "patterns": [
+    "spinal"
+   ]
+  },
+  "sheetResult": "Correct"
+ },
+ {
+  "num": 35,
+  "sport": "Football",
+  "athlete": "Drew Brees, Chargers (Jan 2006)",
+  "truth": "Torn labrum and partial rotator cuff tear",
+  "action": "Throwing arm hit by a defender",
+  "bodyText": "Right shoulder",
+  "redFlags": {
+   "deformity": "no",
+   "nerve": "no",
+   "wound": "no",
+   "loc": "no",
+   "collapse": "no"
+  },
+  "moveIds": [
+   31,
+   32
+  ],
+  "areaIds": [
+   "shoulder"
+  ],
+  "contact": "player",
+  "symptoms": {
+   "swelling": "yes",
+   "bruising": "unsure",
+   "instability": "yes",
+   "limited_range_of_motion": "yes",
+   "audible_pop": "unsure"
+  },
+  "weightBearing": "no",
+  "expect": {
+   "kind": "top",
+   "patterns": [
+    "labral|rotator cuff tear"
+   ]
+  },
+  "sheetResult": "Shoulder Dislocation"
+ },
+ {
+  "num": 36,
+  "sport": "Football",
+  "athlete": "Adrian Peterson, Vikings (Dec 2011)",
+  "truth": "Torn ACL and MCL",
+  "action": "Cutting on a run; low hit",
+  "bodyText": "Knee (ACL & MCL)",
+  "redFlags": {
+   "deformity": "no",
+   "nerve": "no",
+   "wound": "no",
+   "loc": "no",
+   "collapse": "no"
+  },
+  "moveIds": [
+   18,
+   32
+  ],
+  "areaIds": [
+   "knee"
+  ],
+  "contact": "player",
+  "symptoms": {
+   "swelling": "yes",
+   "bruising": "unsure",
+   "instability": "yes",
+   "limited_range_of_motion": "yes",
+   "audible_pop": "unsure"
+  },
+  "weightBearing": "no",
+  "expect": {
+   "kind": "both",
+   "patterns": [
+    "acl",
+    "mcl"
+   ]
+  },
+  "sheetResult": "It got ACL tear correct, but it wasn't able to catch the MCL"
+ },
+ {
+  "num": 37,
+  "sport": "Football",
+  "athlete": "Saquon Barkley, Giants (Sept 2020)",
+  "truth": "Torn right ACL",
+  "action": "Cutting while carrying the ball",
+  "bodyText": "Knee (ACL)",
+  "redFlags": {
+   "deformity": "no",
+   "nerve": "no",
+   "wound": "no",
+   "loc": "no",
+   "collapse": "no"
+  },
+  "moveIds": [
+   18
+  ],
+  "areaIds": [
+   "knee"
+  ],
+  "contact": "none",
+  "symptoms": {
+   "swelling": "yes",
+   "bruising": "unsure",
+   "instability": "yes",
+   "limited_range_of_motion": "yes",
+   "audible_pop": "unsure"
+  },
+  "weightBearing": "no",
+  "expect": {
+   "kind": "top",
+   "patterns": [
+    "acl"
+   ]
+  },
+  "sheetResult": "Correct"
+ },
+ {
+  "num": 38,
+  "sport": "Football",
+  "athlete": "Robert Griffin III, Washington (Jan 2013 playoffs)",
+  "truth": "Torn ACL and LCL",
+  "action": "Planting/twisting while reaching for a bad snap",
+  "bodyText": "Knee (ACL & LCL)",
+  "redFlags": {
+   "deformity": "no",
+   "nerve": "no",
+   "wound": "no",
+   "loc": "no",
+   "collapse": "no"
+  },
+  "moveIds": [
+   18
+  ],
+  "areaIds": [
+   "knee"
+  ],
+  "contact": "none",
+  "symptoms": {
+   "swelling": "yes",
+   "bruising": "unsure",
+   "instability": "yes",
+   "limited_range_of_motion": "yes",
+   "audible_pop": "unsure"
+  },
+  "weightBearing": "no",
+  "expect": {
+   "kind": "both",
+   "patterns": [
+    "acl",
+    "lcl"
+   ]
+  },
+  "sheetResult": "It got ACL tear correct, but it wasn't able to catch the LCL"
+ },
+ {
+  "num": 39,
+  "sport": "Football",
+  "athlete": "Rob Gronkowski, Patriots (Dec 2013)",
+  "truth": "Torn ACL and MCL",
+  "action": "Catching a pass; low hit from Tashaun Gipson",
+  "bodyText": "Knee (ACL & MCL)",
+  "redFlags": {
+   "deformity": "no",
+   "nerve": "no",
+   "wound": "no",
+   "loc": "no",
+   "collapse": "no"
+  },
+  "moveIds": [
+   32
+  ],
+  "areaIds": [
+   "knee"
+  ],
+  "contact": "player",
+  "symptoms": {
+   "swelling": "yes",
+   "bruising": "unsure",
+   "instability": "yes",
+   "limited_range_of_motion": "yes",
+   "audible_pop": "unsure"
+  },
+  "weightBearing": "no",
+  "expect": {
+   "kind": "both",
+   "patterns": [
+    "acl",
+    "mcl"
+   ]
+  },
+  "sheetResult": "MCL Sprain"
+ },
+ {
+  "num": 40,
+  "sport": "Football",
+  "athlete": "Eric LeGrand, Rutgers (Oct 2010)",
+  "truth": "Cervical fracture with spinal cord injury",
+  "action": "Tackling on kickoff coverage",
+  "bodyText": "Neck (C3–C4)",
+  "redFlags": {
+   "deformity": "no",
+   "nerve": "yes",
+   "wound": "no",
+   "loc": "no",
+   "collapse": "no"
+  },
+  "moveIds": [
+   17
+  ],
+  "areaIds": [
+   "neck"
+  ],
+  "contact": "player",
+  "symptoms": {
+   "swelling": "unsure",
+   "bruising": "unsure",
+   "instability": "yes",
+   "limited_range_of_motion": "yes",
+   "audible_pop": "unsure"
+  },
+  "weightBearing": "no",
+  "expect": {
+   "kind": "top",
+   "patterns": [
+    "spinal"
+   ]
+  },
+  "sheetResult": null
+ },
+ {
+  "num": 41,
+  "sport": "Soccer",
+  "athlete": "Luke Shaw, Man United (Sept 2015 vs. PSV)",
+  "truth": "Double fracture of tibia and fibula",
+  "action": "Being tackled/challenged",
+  "bodyText": "Lower leg (tibia & fibula)",
+  "redFlags": {
+   "deformity": "yes",
+   "nerve": "unsure",
+   "wound": "unsure",
+   "loc": "no",
+   "collapse": "no"
+  },
+  "moveIds": [
+   33
+  ],
+  "areaIds": [
+   "shin"
+  ],
+  "contact": "player",
+  "symptoms": {
+   "swelling": "yes",
+   "bruising": "unsure",
+   "instability": "yes",
+   "limited_range_of_motion": "yes",
+   "audible_pop": "unsure"
+  },
+  "weightBearing": "no",
+  "expect": {
+   "kind": "top",
+   "patterns": [
+    "tibia"
+   ]
+  },
+  "sheetResult": null
+ },
+ {
+  "num": 42,
+  "sport": "Soccer",
+  "athlete": "Eduardo, Arsenal (Feb 2008 vs. Birmingham)",
+  "truth": "Open fibula fracture with ankle dislocation",
+  "action": "Being tackled (two-footed challenge)",
+  "bodyText": "Lower leg & ankle",
+  "redFlags": {
+   "deformity": "yes",
+   "nerve": "unsure",
+   "wound": "yes",
+   "loc": "no",
+   "collapse": "no"
+  },
+  "moveIds": [
+   33,
+   29
+  ],
+  "areaIds": [
+   "shin",
+   "ankle"
+  ],
+  "contact": "player",
+  "symptoms": {
+   "swelling": "yes",
+   "bruising": "unsure",
+   "instability": "yes",
+   "limited_range_of_motion": "yes",
+   "audible_pop": "unsure"
+  },
+  "weightBearing": "no",
+  "expect": {
+   "kind": "top",
+   "patterns": [
+    "tibia|ankle fracture"
+   ]
+  },
+  "sheetResult": null
+ },
+ {
+  "num": 43,
+  "sport": "Soccer",
+  "athlete": "Aaron Ramsey, Arsenal (Feb 2010 vs. Stoke)",
+  "truth": "Compound tibia/fibula fracture",
+  "action": "Being tackled (Ryan Shawcross challenge)",
+  "bodyText": "Lower leg (tibia & fibula)",
+  "redFlags": {
+   "deformity": "yes",
+   "nerve": "unsure",
+   "wound": "yes",
+   "loc": "no",
+   "collapse": "no"
+  },
+  "moveIds": [
+   33
+  ],
+  "areaIds": [
+   "shin"
+  ],
+  "contact": "player",
+  "symptoms": {
+   "swelling": "yes",
+   "bruising": "unsure",
+   "instability": "yes",
+   "limited_range_of_motion": "yes",
+   "audible_pop": "unsure"
+  },
+  "weightBearing": "no",
+  "expect": {
+   "kind": "top",
+   "patterns": [
+    "tibia"
+   ]
+  },
+  "sheetResult": null
+ },
+ {
+  "num": 44,
+  "sport": "Soccer",
+  "athlete": "Christian Eriksen, Denmark (Euro 2020, June 2021)",
+  "truth": "Cardiac arrest",
+  "action": "Running during play (no contact)",
+  "bodyText": "Heart",
+  "redFlags": {
+   "deformity": "no",
+   "nerve": "no",
+   "wound": "no",
+   "loc": "no",
+   "collapse": "yes"
+  },
+  "moveIds": [
+   22
+  ],
+  "areaIds": [
+   "chest"
+  ],
+  "contact": "none",
+  "symptoms": {
+   "swelling": "no",
+   "bruising": "no",
+   "instability": "no",
+   "limited_range_of_motion": "no",
+   "audible_pop": "no"
+  },
+  "weightBearing": "no",
+  "expect": {
+   "kind": "top",
+   "patterns": [
+    "cardiac"
+   ]
+  },
+  "sheetResult": null
+ },
+ {
+  "num": 45,
+  "sport": "Soccer",
+  "athlete": "Fabrice Muamba, Bolton (Mar 2012)",
+  "truth": "Cardiac arrest",
+  "action": "Running in midfield (no contact)",
+  "bodyText": "Heart",
+  "redFlags": {
+   "deformity": "no",
+   "nerve": "no",
+   "wound": "no",
+   "loc": "no",
+   "collapse": "yes"
+  },
+  "moveIds": [
+   22
+  ],
+  "areaIds": [
+   "chest"
+  ],
+  "contact": "none",
+  "symptoms": {
+   "swelling": "no",
+   "bruising": "no",
+   "instability": "no",
+   "limited_range_of_motion": "no",
+   "audible_pop": "no"
+  },
+  "weightBearing": "no",
+  "expect": {
+   "kind": "top",
+   "patterns": [
+    "cardiac"
+   ]
+  },
+  "sheetResult": null
+ },
+ {
+  "num": 46,
+  "sport": "Soccer",
+  "athlete": "Petr Čech, Chelsea (Oct 2006 vs. Reading)",
+  "truth": "Depressed skull fracture",
+  "action": "Challenge for a loose ball; knee to the head",
+  "bodyText": "Skull (depressed fracture)",
+  "redFlags": {
+   "deformity": "no",
+   "nerve": "no",
+   "wound": "no",
+   "loc": "yes",
+   "collapse": "no"
+  },
+  "moveIds": [
+   33,
+   30
+  ],
+  "areaIds": [
+   "head"
+  ],
+  "contact": "player",
+  "symptoms": {
+   "swelling": "unsure",
+   "bruising": "unsure",
+   "instability": "no",
+   "limited_range_of_motion": "no",
+   "audible_pop": "no"
+  },
+  "weightBearing": "no",
+  "expect": {
+   "kind": "top",
+   "patterns": [
+    "skull"
+   ]
+  },
+  "sheetResult": null
+ },
+ {
+  "num": 47,
+  "sport": "Soccer",
+  "athlete": "Neymar, Brazil (2014 World Cup)",
+  "truth": "Fractured third lumbar vertebra",
+  "action": "Jumping for a high ball; kneed in the back",
+  "bodyText": "Lower back (L3 vertebra)",
+  "redFlags": {
+   "deformity": "no",
+   "nerve": "no",
+   "wound": "no",
+   "loc": "no",
+   "collapse": "no"
+  },
+  "moveIds": [
+   28,
+   33
+  ],
+  "areaIds": [
+   "lower_back"
+  ],
+  "contact": "player",
+  "symptoms": {
+   "swelling": "yes",
+   "bruising": "unsure",
+   "instability": "yes",
+   "limited_range_of_motion": "yes",
+   "audible_pop": "unsure"
+  },
+  "weightBearing": "no",
+  "expect": {
+   "kind": "top",
+   "patterns": [
+    "vertebra"
+   ]
+  },
+  "sheetResult": "Ankle Sprain"
+ },
+ {
+  "num": 48,
+  "sport": "Soccer",
+  "athlete": "Mohamed Salah, Liverpool (2018 Champions League final)",
+  "truth": "Shoulder ligament injury (reported dislocation/sprain)",
+  "action": "Wrestled to the ground, arm trapped by Sergio Ramos",
+  "bodyText": "Shoulder",
+  "redFlags": {
+   "deformity": "no",
+   "nerve": "no",
+   "wound": "no",
+   "loc": "no",
+   "collapse": "no"
+  },
+  "moveIds": [
+   33
+  ],
+  "areaIds": [
+   "shoulder"
+  ],
+  "contact": "player",
+  "symptoms": {
+   "swelling": "yes",
+   "bruising": "unsure",
+   "instability": "yes",
+   "limited_range_of_motion": "yes",
+   "audible_pop": "unsure"
+  },
+  "weightBearing": "no",
+  "expect": {
+   "kind": "top",
+   "patterns": [
+    "shoulder dislocation"
+   ]
+  },
+  "sheetResult": null
+ },
+ {
+  "num": 49,
+  "sport": "Soccer",
+  "athlete": "David Busst, Coventry (Apr 1996 vs. Man United)",
+  "truth": "Open tibia/fibula fracture",
+  "action": "Collision on a corner",
+  "bodyText": "Lower leg (tibia & fibula)",
+  "redFlags": {
+   "deformity": "yes",
+   "nerve": "unsure",
+   "wound": "yes",
+   "loc": "no",
+   "collapse": "no"
+  },
+  "moveIds": [
+   33
+  ],
+  "areaIds": [
+   "shin"
+  ],
+  "contact": "player",
+  "symptoms": {
+   "swelling": "yes",
+   "bruising": "unsure",
+   "instability": "yes",
+   "limited_range_of_motion": "yes",
+   "audible_pop": "unsure"
+  },
+  "weightBearing": "no",
+  "expect": {
+   "kind": "top",
+   "patterns": [
+    "tibia"
+   ]
+  },
+  "sheetResult": null
+ },
+ {
+  "num": 50,
+  "sport": "Soccer",
+  "athlete": "Djibril Cissé, Liverpool (Oct 2004 vs. Blackburn)",
+  "truth": "Double fracture of tibia and fibula",
+  "action": "Being tackled",
+  "bodyText": "Lower leg (tibia & fibula)",
+  "redFlags": {
+   "deformity": "yes",
+   "nerve": "unsure",
+   "wound": "unsure",
+   "loc": "no",
+   "collapse": "no"
+  },
+  "moveIds": [
+   33
+  ],
+  "areaIds": [
+   "shin"
+  ],
+  "contact": "player",
+  "symptoms": {
+   "swelling": "yes",
+   "bruising": "unsure",
+   "instability": "yes",
+   "limited_range_of_motion": "yes",
+   "audible_pop": "unsure"
+  },
+  "weightBearing": "no",
+  "expect": {
+   "kind": "top",
+   "patterns": [
+    "tibia"
+   ]
+  },
+  "sheetResult": null
+ },
+ {
+  "num": 51,
+  "sport": "Soccer",
+  "athlete": "Ronaldo Nazário, Inter (Nov 1999 vs. Lecce)",
+  "truth": "Ruptured right patellar tendon",
+  "action": "Turning at pace while dribbling",
+  "bodyText": "Knee (patellar tendon)",
+  "redFlags": {
+   "deformity": "no",
+   "nerve": "no",
+   "wound": "no",
+   "loc": "no",
+   "collapse": "no"
+  },
+  "moveIds": [
+   25
+  ],
+  "areaIds": [
+   "kneecap",
+   "knee"
+  ],
+  "contact": "none",
+  "symptoms": {
+   "swelling": "yes",
+   "bruising": "unsure",
+   "instability": "yes",
+   "limited_range_of_motion": "yes",
+   "audible_pop": "yes"
+  },
+  "weightBearing": "no",
+  "expect": {
+   "kind": "top",
+   "patterns": [
+    "patellar or quadriceps tendon rupture"
+   ]
+  },
+  "sheetResult": "ACL Tear"
+ },
+ {
+  "num": 52,
+  "sport": "Soccer",
+  "athlete": "Paul Gascoigne, Tottenham (1991 FA Cup final)",
+  "truth": "Ruptured cruciate ligament",
+  "action": "Lunging, mistimed challenge on Gary Charles",
+  "bodyText": "Knee (cruciate ligament)",
+  "redFlags": {
+   "deformity": "no",
+   "nerve": "no",
+   "wound": "no",
+   "loc": "no",
+   "collapse": "no"
+  },
+  "moveIds": [
+   29,
+   33
+  ],
+  "areaIds": [
+   "knee"
+  ],
+  "contact": "player",
+  "symptoms": {
+   "swelling": "yes",
+   "bruising": "unsure",
+   "instability": "yes",
+   "limited_range_of_motion": "yes",
+   "audible_pop": "unsure"
+  },
+  "weightBearing": "no",
+  "expect": {
+   "kind": "top",
+   "patterns": [
+    "acl"
+   ]
+  },
+  "sheetResult": "ACL Tear"
+ },
+ {
+  "num": 53,
+  "sport": "Soccer",
+  "athlete": "Wayne Rooney, Man United (Apr 2006 vs. Chelsea)",
+  "truth": "Broken fourth metatarsal",
+  "action": "Challenge/foul that landed on his foot",
+  "bodyText": "Right foot (4th metatarsal)",
+  "redFlags": {
+   "deformity": "no",
+   "nerve": "no",
+   "wound": "no",
+   "loc": "no",
+   "collapse": "no"
+  },
+  "moveIds": [
+   33
+  ],
+  "areaIds": [
+   "foot"
+  ],
+  "contact": "player",
+  "symptoms": {
+   "swelling": "yes",
+   "bruising": "unsure",
+   "instability": "yes",
+   "limited_range_of_motion": "yes",
+   "audible_pop": "unsure"
+  },
+  "weightBearing": "no",
+  "expect": {
+   "kind": "top",
+   "patterns": [
+    "foot fracture"
+   ]
+  },
+  "sheetResult": "Ankle Sprain"
+ },
+ {
+  "num": 54,
+  "sport": "Soccer",
+  "athlete": "Zlatan Ibrahimović, Man United (Apr 2017 vs. Anderlecht)",
+  "truth": "Torn ACL",
+  "action": "Landing awkwardly after a header",
+  "bodyText": "Knee (ACL & cartilage)",
+  "redFlags": {
+   "deformity": "no",
+   "nerve": "no",
+   "wound": "no",
+   "loc": "no",
+   "collapse": "no"
+  },
+  "moveIds": [
+   28,
+   27
+  ],
+  "areaIds": [
+   "knee"
+  ],
+  "contact": "none",
+  "symptoms": {
+   "swelling": "yes",
+   "bruising": "unsure",
+   "instability": "yes",
+   "limited_range_of_motion": "yes",
+   "audible_pop": "unsure"
+  },
+  "weightBearing": "no",
+  "expect": {
+   "kind": "top",
+   "patterns": [
+    "acl"
+   ]
+  },
+  "sheetResult": null
+ },
+ {
+  "num": 55,
+  "sport": "Soccer",
+  "athlete": "Thibaut Courtois, Real Madrid (Aug 2023)",
+  "truth": "Torn left ACL",
+  "action": "Non-contact injury in training",
+  "bodyText": "Knee (ACL)",
+  "redFlags": {
+   "deformity": "no",
+   "nerve": "no",
+   "wound": "no",
+   "loc": "no",
+   "collapse": "no"
+  },
+  "moveIds": [
+   30
+  ],
+  "areaIds": [
+   "knee"
+  ],
+  "contact": "none",
+  "symptoms": {
+   "swelling": "yes",
+   "bruising": "unsure",
+   "instability": "yes",
+   "limited_range_of_motion": "yes",
+   "audible_pop": "unsure"
+  },
+  "weightBearing": "no",
+  "expect": {
+   "kind": "top",
+   "patterns": [
+    "acl"
+   ]
+  },
+  "sheetResult": null
+ },
+ {
+  "num": 56,
+  "sport": "Soccer",
+  "athlete": "Ryan Mason, Hull (Jan 2017 vs. Chelsea)",
+  "truth": "Fractured skull",
+  "action": "Challenging for a header",
+  "bodyText": "Skull (fracture)",
+  "redFlags": {
+   "deformity": "no",
+   "nerve": "no",
+   "wound": "no",
+   "loc": "yes",
+   "collapse": "no"
+  },
+  "moveIds": [
+   27,
+   33
+  ],
+  "areaIds": [
+   "head"
+  ],
+  "contact": "player",
+  "symptoms": {
+   "swelling": "unsure",
+   "bruising": "unsure",
+   "instability": "no",
+   "limited_range_of_motion": "no",
+   "audible_pop": "no"
+  },
+  "weightBearing": "no",
+  "expect": {
+   "kind": "top",
+   "patterns": [
+    "skull"
+   ]
+  },
+  "sheetResult": null
+ },
+ {
+  "num": 57,
+  "sport": "Soccer",
+  "athlete": "Diego Maradona, Barcelona (Sept 1983)",
+  "truth": "Fractured ankle and torn ligaments",
+  "action": "Tackle from behind by Andoni Goikoetxea",
+  "bodyText": "Ankle",
+  "redFlags": {
+   "deformity": "no",
+   "nerve": "unsure",
+   "wound": "no",
+   "loc": "no",
+   "collapse": "no"
+  },
+  "moveIds": [
+   33
+  ],
+  "areaIds": [
+   "ankle"
+  ],
+  "contact": "player",
+  "symptoms": {
+   "swelling": "yes",
+   "bruising": "unsure",
+   "instability": "yes",
+   "limited_range_of_motion": "yes",
+   "audible_pop": "unsure"
+  },
+  "weightBearing": "no",
+  "expect": {
+   "kind": "both",
+   "patterns": [
+    "ankle fracture",
+    "ankle sprain"
+   ]
+  },
+  "sheetResult": "Ankle Sprain"
+ },
+ {
+  "num": 58,
+  "sport": "Soccer",
+  "athlete": "Dean Ashton, England training (Aug 2006)",
+  "truth": "Fractured ankle",
+  "action": "Tackle in a training session",
+  "bodyText": "Ankle",
+  "redFlags": {
+   "deformity": "no",
+   "nerve": "unsure",
+   "wound": "no",
+   "loc": "no",
+   "collapse": "no"
+  },
+  "moveIds": [
+   29,
+   33
+  ],
+  "areaIds": [
+   "ankle"
+  ],
+  "contact": "player",
+  "symptoms": {
+   "swelling": "yes",
+   "bruising": "unsure",
+   "instability": "yes",
+   "limited_range_of_motion": "yes",
+   "audible_pop": "unsure"
+  },
+  "weightBearing": "no",
+  "expect": {
+   "kind": "top",
+   "patterns": [
+    "ankle fracture"
+   ]
+  },
+  "sheetResult": "Ankle Sprain"
+ },
+ {
+  "num": 59,
+  "sport": "Soccer",
+  "athlete": "Hatem Ben Arfa, Newcastle (Oct 2010 vs. Man City)",
+  "truth": "Double fracture of tibia and fibula",
+  "action": "Tackle by Nigel de Jong",
+  "bodyText": "Lower leg (tibia & fibula)",
+  "redFlags": {
+   "deformity": "unsure",
+   "nerve": "unsure",
+   "wound": "unsure",
+   "loc": "no",
+   "collapse": "no"
+  },
+  "moveIds": [
+   33,
+   29
+  ],
+  "areaIds": [
+   "shin"
+  ],
+  "contact": "player",
+  "symptoms": {
+   "swelling": "yes",
+   "bruising": "unsure",
+   "instability": "yes",
+   "limited_range_of_motion": "yes",
+   "audible_pop": "unsure"
+  },
+  "weightBearing": "no",
+  "expect": {
+   "kind": "top",
+   "patterns": [
+    "tibia"
+   ]
+  },
+  "sheetResult": "Achilles Tendon Rupture"
+ },
+ {
+  "num": 60,
+  "sport": "Soccer",
+  "athlete": "Pelé, Brazil (1966 World Cup)",
+  "truth": "Knee/leg injury from repeated fouls (as reported)",
+  "action": "Repeatedly fouled by defenders (no substitutions allowed then)",
+  "bodyText": "Knee / leg",
+  "redFlags": {
+   "deformity": "no",
+   "nerve": "no",
+   "wound": "no",
+   "loc": "no",
+   "collapse": "no"
+  },
+  "moveIds": [
+   33,
+   25
+  ],
+  "areaIds": [
+   "knee"
+  ],
+  "contact": "player",
+  "symptoms": {
+   "swelling": "unsure",
+   "bruising": "unsure",
+   "instability": "unsure",
+   "limited_range_of_motion": "yes",
+   "audible_pop": "unsure"
+  },
+  "weightBearing": "no",
+  "expect": {
+   "kind": "top",
+   "patterns": [
+    "contusion"
+   ]
+  },
+  "sheetResult": "ACL Tear"
+ },
+ {
+  "num": 61,
+  "sport": "Baseball",
+  "athlete": "Tony Conigliaro, Red Sox (Aug 1967)",
+  "truth": "Fractured cheekbone, dislocated jaw, retina damage",
+  "action": "Batting; hit by a pitch",
+  "bodyText": "Face (cheekbone, jaw, left eye)",
+  "redFlags": {
+   "deformity": "unsure",
+   "nerve": "no",
+   "wound": "no",
+   "loc": "yes",
+   "collapse": "no"
+  },
+  "moveIds": [
+   16,
+   10
+  ],
+  "areaIds": [
+   "face"
+  ],
+  "contact": "object",
+  "symptoms": {
+   "swelling": "yes",
+   "bruising": "yes",
+   "instability": "no",
+   "limited_range_of_motion": "no",
+   "audible_pop": "no"
+  },
+  "weightBearing": "no",
+  "expect": {
+   "kind": "top",
+   "patterns": [
+    "facial"
+   ]
+  },
+  "sheetResult": null
+ },
+ {
+  "num": 62,
+  "sport": "Baseball",
+  "athlete": "Ray Chapman, Indians (Aug 1920)",
+  "truth": "Skull fracture",
+  "action": "Batting; hit by a pitch",
+  "bodyText": "Skull (depressed fracture)",
+  "redFlags": {
+   "deformity": "no",
+   "nerve": "no",
+   "wound": "no",
+   "loc": "yes",
+   "collapse": "no"
+  },
+  "moveIds": [
+   16,
+   10
+  ],
+  "areaIds": [
+   "head"
+  ],
+  "contact": "object",
+  "symptoms": {
+   "swelling": "unsure",
+   "bruising": "unsure",
+   "instability": "no",
+   "limited_range_of_motion": "no",
+   "audible_pop": "no"
+  },
+  "weightBearing": "no",
+  "expect": {
+   "kind": "top",
+   "patterns": [
+    "skull"
+   ]
+  },
+  "sheetResult": null
+ },
+ {
+  "num": 63,
+  "sport": "Baseball",
+  "athlete": "Giancarlo Stanton, Marlins (Sept 2014)",
+  "truth": "Multiple facial fractures with dental damage and laceration",
+  "action": "Batting; hit in face by a pitch",
+  "bodyText": "Face (multiple fractures), teeth",
+  "redFlags": {
+   "deformity": "no",
+   "nerve": "no",
+   "wound": "yes",
+   "loc": "yes",
+   "collapse": "no"
+  },
+  "moveIds": [
+   16,
+   10
+  ],
+  "areaIds": [
+   "face"
+  ],
+  "contact": "object",
+  "symptoms": {
+   "swelling": "yes",
+   "bruising": "yes",
+   "instability": "no",
+   "limited_range_of_motion": "yes",
+   "audible_pop": "no"
+  },
+  "weightBearing": "no",
+  "expect": {
+   "kind": "top",
+   "patterns": [
+    "facial"
+   ]
+  },
+  "sheetResult": null
+ },
+ {
+  "num": 64,
+  "sport": "Baseball",
+  "athlete": "Brandon McCarthy, Athletics (Sept 2012)",
+  "truth": "Skull fracture, epidural hematoma, brain contusion",
+  "action": "Pitching; struck by a line drive",
+  "bodyText": "Skull/brain (epidural hematoma)",
+  "redFlags": {
+   "deformity": "no",
+   "nerve": "no",
+   "wound": "no",
+   "loc": "yes",
+   "collapse": "no"
+  },
+  "moveIds": [
+   9
+  ],
+  "areaIds": [
+   "head"
+  ],
+  "contact": "object",
+  "symptoms": {
+   "swelling": "yes",
+   "bruising": "unsure",
+   "instability": "no",
+   "limited_range_of_motion": "no",
+   "audible_pop": "no"
+  },
+  "weightBearing": "no",
+  "expect": {
+   "kind": "top",
+   "patterns": [
+    "skull"
+   ]
+  },
+  "sheetResult": null
+ },
+ {
+  "num": 65,
+  "sport": "Baseball",
+  "athlete": "Dave Dravecky, Giants (Aug 1989)",
+  "truth": "Fractured humerus (weakened bone after cancer treatment)",
+  "action": "Throwing a pitch",
+  "bodyText": "Left humerus (upper arm)",
+  "redFlags": {
+   "deformity": "yes",
+   "nerve": "unsure",
+   "wound": "no",
+   "loc": "no",
+   "collapse": "no"
+  },
+  "moveIds": [
+   9
+  ],
+  "areaIds": [
+   "upper_arm"
+  ],
+  "contact": "none",
+  "symptoms": {
+   "swelling": "yes",
+   "bruising": "yes",
+   "instability": "yes",
+   "limited_range_of_motion": "yes",
+   "audible_pop": "yes"
+  },
+  "weightBearing": "no",
+  "expect": {
+   "kind": "top",
+   "patterns": [
+    "upper arm fracture"
+   ]
+  },
+  "sheetResult": null
+ },
+ {
+  "num": 66,
+  "sport": "Baseball",
+  "athlete": "Mike Trout, Angels (May 2017)",
+  "truth": "Torn thumb ligament (UCL)",
+  "action": "Sliding head-first into second base",
+  "bodyText": "Left thumb",
+  "redFlags": {
+   "deformity": "no",
+   "nerve": "no",
+   "wound": "no",
+   "loc": "no",
+   "collapse": "no"
+  },
+  "moveIds": [
+   12
+  ],
+  "areaIds": [
+   "fingers"
+  ],
+  "contact": "object",
+  "symptoms": {
+   "swelling": "yes",
+   "bruising": "yes",
+   "instability": "yes",
+   "limited_range_of_motion": "yes",
+   "audible_pop": "unsure"
+  },
+  "weightBearing": "no",
+  "expect": {
+   "kind": "top",
+   "patterns": [
+    "thumb ligament"
+   ]
+  },
+  "sheetResult": "Hand Contusion"
+ },
+ {
+  "num": 67,
+  "sport": "Baseball",
+  "athlete": "Buster Posey, Giants (May 2011)",
+  "truth": "Fractured fibula and torn ankle ligaments",
+  "action": "Collision at home plate while catching",
+  "bodyText": "Lower leg & ankle",
+  "redFlags": {
+   "deformity": "no",
+   "nerve": "no",
+   "wound": "no",
+   "loc": "no",
+   "collapse": "no"
+  },
+  "moveIds": [
+   14,
+   15
+  ],
+  "areaIds": [
+   "shin",
+   "ankle"
+  ],
+  "contact": "player",
+  "symptoms": {
+   "swelling": "yes",
+   "bruising": "yes",
+   "instability": "yes",
+   "limited_range_of_motion": "yes",
+   "audible_pop": "unsure"
+  },
+  "weightBearing": "no",
+  "expect": {
+   "kind": "top",
+   "patterns": [
+    "fracture"
+   ]
+  },
+  "sheetResult": "Ankle Sprain"
+ },
+ {
+  "num": 68,
+  "sport": "Baseball",
+  "athlete": "Kirk Gibson, Dodgers (Oct 1988, World Series Game 1)",
+  "truth": "Strained hamstring and swollen knee",
+  "action": "Playing with leg injuries; pinch-hit home run",
+  "bodyText": "Legs (hamstring, knee)",
+  "redFlags": {
+   "deformity": "no",
+   "nerve": "no",
+   "wound": "no",
+   "loc": "no",
+   "collapse": "no"
+  },
+  "moveIds": [
+   11
+  ],
+  "areaIds": [
+   "hamstring",
+   "knee"
+  ],
+  "contact": "none",
+  "symptoms": {
+   "swelling": "yes",
+   "bruising": "unsure",
+   "instability": "yes",
+   "limited_range_of_motion": "yes",
+   "audible_pop": "unsure"
+  },
+  "weightBearing": "no",
+  "expect": {
+   "kind": "groups",
+   "patterns": [
+    "hamstring",
+    "knee|menisc|mcl|acl|kneecap|patell"
+   ]
+  },
+  "sheetResult": null
+ },
+ {
+  "num": 69,
+  "sport": "Baseball",
+  "athlete": "Aaron Judge, Yankees (June 2023)",
+  "truth": "Torn toe ligament",
+  "action": "Running into the bullpen gate while catching a fly ball",
+  "bodyText": "Right big toe",
+  "redFlags": {
+   "deformity": "no",
+   "nerve": "no",
+   "wound": "no",
+   "loc": "no",
+   "collapse": "no"
+  },
+  "moveIds": [
+   15,
+   34
+  ],
+  "areaIds": [
+   "toes"
+  ],
+  "contact": "object",
+  "symptoms": {
+   "swelling": "yes",
+   "bruising": "unsure",
+   "instability": "yes",
+   "limited_range_of_motion": "yes",
+   "audible_pop": "unsure"
+  },
+  "weightBearing": "no",
+  "expect": {
+   "kind": "top",
+   "patterns": [
+    "turf toe"
+   ]
+  },
+  "sheetResult": "Ankle Sprain"
+ },
+ {
+  "num": 70,
+  "sport": "Baseball",
+  "athlete": "Ronald Acuña Jr., Braves (July 2021)",
+  "truth": "Torn right ACL",
+  "action": "Tracking a fly ball in the outfield",
+  "bodyText": "Knee (ACL)",
+  "redFlags": {
+   "deformity": "no",
+   "nerve": "no",
+   "wound": "no",
+   "loc": "no",
+   "collapse": "no"
+  },
+  "moveIds": [
+   34
+  ],
+  "areaIds": [
+   "knee"
+  ],
+  "contact": "none",
+  "symptoms": {
+   "swelling": "yes",
+   "bruising": "unsure",
+   "instability": "yes",
+   "limited_range_of_motion": "yes",
+   "audible_pop": "unsure"
+  },
+  "weightBearing": "no",
+  "expect": {
+   "kind": "top",
+   "patterns": [
+    "acl"
+   ]
+  },
+  "sheetResult": "Meniscus Injury"
+ },
+ {
+  "num": 71,
+  "sport": "Baseball",
+  "athlete": "Bryce Harper, Phillies (June 2022)",
+  "truth": "Fractured left thumb",
+  "action": "Hit by a pitch while batting",
+  "bodyText": "Left thumb",
+  "redFlags": {
+   "deformity": "no",
+   "nerve": "no",
+   "wound": "no",
+   "loc": "no",
+   "collapse": "no"
+  },
+  "moveIds": [
+   16
+  ],
+  "areaIds": [
+   "fingers",
+   "hand"
+  ],
+  "contact": "object",
+  "symptoms": {
+   "swelling": "yes",
+   "bruising": "yes",
+   "instability": "no",
+   "limited_range_of_motion": "yes",
+   "audible_pop": "yes"
+  },
+  "weightBearing": "no",
+  "expect": {
+   "kind": "top",
+   "patterns": [
+    "finger or thumb fracture"
+   ]
+  },
+  "sheetResult": "Hand Contusion"
+ },
+ {
+  "num": 72,
+  "sport": "Baseball",
+  "athlete": "Shohei Ohtani, Dodgers (Oct 2024, World Series)",
+  "truth": "Partial shoulder dislocation (subluxation) with labrum tear",
+  "action": "Sliding into second base on a steal",
+  "bodyText": "Left shoulder",
+  "redFlags": {
+   "deformity": "no",
+   "nerve": "no",
+   "wound": "no",
+   "loc": "no",
+   "collapse": "no"
+  },
+  "moveIds": [
+   12,
+   11
+  ],
+  "areaIds": [
+   "shoulder"
+  ],
+  "contact": "object",
+  "symptoms": {
+   "swelling": "yes",
+   "bruising": "unsure",
+   "instability": "yes",
+   "limited_range_of_motion": "yes",
+   "audible_pop": "unsure"
+  },
+  "weightBearing": "no",
+  "expect": {
+   "kind": "both",
+   "patterns": [
+    "dislocation",
+    "labral"
+   ]
+  },
+  "sheetResult": "It caught the laberal tear, but didn’t catch the dislocation"
+ },
+ {
+  "num": 73,
+  "sport": "Baseball",
+  "athlete": "Tommy John, Dodgers (July 1974)",
+  "truth": "Torn ulnar collateral ligament",
+  "action": "Pitching",
+  "bodyText": "Elbow (UCL)",
+  "redFlags": {
+   "deformity": "no",
+   "nerve": "no",
+   "wound": "no",
+   "loc": "no",
+   "collapse": "no"
+  },
+  "moveIds": [
+   9
+  ],
+  "areaIds": [
+   "elbow"
+  ],
+  "contact": "none",
+  "symptoms": {
+   "swelling": "yes",
+   "bruising": "unsure",
+   "instability": "yes",
+   "limited_range_of_motion": "yes",
+   "audible_pop": "yes"
+  },
+  "weightBearing": "no",
+  "expect": {
+   "kind": "top",
+   "patterns": [
+    "ucl tear"
+   ]
+  },
+  "sheetResult": null
+ },
+ {
+  "num": 74,
+  "sport": "Baseball",
+  "athlete": "Derek Jeter, Yankees (Oct 2012 ALCS, Game 1)",
+  "truth": "Fractured left ankle",
+  "action": "Moving to field a ground ball",
+  "bodyText": "Left ankle",
+  "redFlags": {
+   "deformity": "no",
+   "nerve": "no",
+   "wound": "no",
+   "loc": "no",
+   "collapse": "no"
+  },
+  "moveIds": [
+   13
+  ],
+  "areaIds": [
+   "ankle"
+  ],
+  "contact": "none",
+  "symptoms": {
+   "swelling": "yes",
+   "bruising": "yes",
+   "instability": "yes",
+   "limited_range_of_motion": "yes",
+   "audible_pop": "unsure"
+  },
+  "weightBearing": "no",
+  "expect": {
+   "kind": "top",
+   "patterns": [
+    "ankle fracture"
+   ]
+  },
+  "sheetResult": "Ankle Fracture"
+ },
+ {
+  "num": 75,
+  "sport": "Baseball",
+  "athlete": "Christian Yelich, Brewers (Sept 2019)",
+  "truth": "Fractured right kneecap",
+  "action": "Fouling a pitch off his own knee",
+  "bodyText": "Right knee (kneecap)",
+  "redFlags": {
+   "deformity": "no",
+   "nerve": "no",
+   "wound": "no",
+   "loc": "no",
+   "collapse": "no"
+  },
+  "moveIds": [
+   10,
+   16
+  ],
+  "areaIds": [
+   "kneecap"
+  ],
+  "contact": "object",
+  "symptoms": {
+   "swelling": "yes",
+   "bruising": "yes",
+   "instability": "no",
+   "limited_range_of_motion": "yes",
+   "audible_pop": "unsure"
+  },
+  "weightBearing": "no",
+  "expect": {
+   "kind": "top",
+   "patterns": [
+    "patellar \\(kneecap\\) fracture"
+   ]
+  },
+  "sheetResult": "It only said knee injury - patellar, it wasn't that specific at all. I think it should be more specific and say knee fracture"
+ },
+ {
+  "num": 76,
+  "sport": "Baseball",
+  "athlete": "Mike Soroka, Braves (Aug 2020)",
+  "truth": "Torn right Achilles",
+  "action": "Delivering a pitch",
+  "bodyText": "Achilles tendon",
+  "redFlags": {
+   "deformity": "no",
+   "nerve": "no",
+   "wound": "no",
+   "loc": "no",
+   "collapse": "no"
+  },
+  "moveIds": [
+   9
+  ],
+  "areaIds": [
+   "achilles"
+  ],
+  "contact": "none",
+  "symptoms": {
+   "swelling": "yes",
+   "bruising": "unsure",
+   "instability": "yes",
+   "limited_range_of_motion": "yes",
+   "audible_pop": "unsure"
+  },
+  "weightBearing": "no",
+  "expect": {
+   "kind": "top",
+   "patterns": [
+    "achilles.*rupture"
+   ]
+  },
+  "sheetResult": "Ankle Sprain"
+ },
+ {
+  "num": 77,
+  "sport": "Baseball",
+  "athlete": "Don Zimmer, Dodgers farm system (July 1953)",
+  "truth": "Skull fracture with coma",
+  "action": "Batting; hit by a pitch",
+  "bodyText": "Skull",
+  "redFlags": {
+   "deformity": "no",
+   "nerve": "unsure",
+   "wound": "no",
+   "loc": "yes",
+   "collapse": "no"
+  },
+  "moveIds": [
+   16,
+   10
+  ],
+  "areaIds": [
+   "head"
+  ],
+  "contact": "object",
+  "symptoms": {
+   "swelling": "unsure",
+   "bruising": "unsure",
+   "instability": "no",
+   "limited_range_of_motion": "no",
+   "audible_pop": "no"
+  },
+  "weightBearing": "no",
+  "expect": {
+   "kind": "top",
+   "patterns": [
+    "skull"
+   ]
+  },
+  "sheetResult": null
+ },
+ {
+  "num": 78,
+  "sport": "Baseball",
+  "athlete": "Dickie Thon, Astros (Apr 1984)",
+  "truth": "Fractured orbital bone with lasting vision problems",
+  "action": "Batting; hit by a pitch",
+  "bodyText": "Orbital bone and eye",
+  "redFlags": {
+   "deformity": "no",
+   "nerve": "no",
+   "wound": "no",
+   "loc": "yes",
+   "collapse": "no"
+  },
+  "moveIds": [
+   16,
+   10
+  ],
+  "areaIds": [
+   "face"
+  ],
+  "contact": "object",
+  "symptoms": {
+   "swelling": "yes",
+   "bruising": "yes",
+   "instability": "no",
+   "limited_range_of_motion": "no",
+   "audible_pop": "no"
+  },
+  "weightBearing": "no",
+  "expect": {
+   "kind": "top",
+   "patterns": [
+    "facial"
+   ]
+  },
+  "sheetResult": null
+ },
+ {
+  "num": 79,
+  "sport": "Baseball",
+  "athlete": "Joe Mauer, Twins (Aug 2013)",
+  "truth": "Concussion (persistent symptoms)",
+  "action": "Catching; foul tip off the mask",
+  "bodyText": "Head",
+  "redFlags": {
+   "deformity": "no",
+   "nerve": "no",
+   "wound": "no",
+   "loc": "yes",
+   "collapse": "no"
+  },
+  "moveIds": [
+   14
+  ],
+  "areaIds": [
+   "head"
+  ],
+  "contact": "object",
+  "symptoms": {
+   "swelling": "no",
+   "bruising": "no",
+   "instability": "no",
+   "limited_range_of_motion": "no",
+   "audible_pop": "no"
+  },
+  "weightBearing": "no",
+  "expect": {
+   "kind": "top",
+   "patterns": [
+    "concussion"
+   ]
+  },
+  "sheetResult": null
+ },
+ {
+  "num": 80,
+  "sport": "Baseball",
+  "athlete": "Fernando Tatis Jr., Padres (Apr 2021)",
+  "truth": "Partial shoulder dislocation (subluxation)",
+  "action": "Swinging a bat (non-contact)",
+  "bodyText": "Left shoulder",
+  "redFlags": {
+   "deformity": "no",
+   "nerve": "no",
+   "wound": "no",
+   "loc": "no",
+   "collapse": "no"
+  },
+  "moveIds": [
+   10
+  ],
+  "areaIds": [
+   "shoulder"
+  ],
+  "contact": "none",
+  "symptoms": {
+   "swelling": "yes",
+   "bruising": "unsure",
+   "instability": "yes",
+   "limited_range_of_motion": "yes",
+   "audible_pop": "unsure"
+  },
+  "weightBearing": "no",
+  "expect": {
+   "kind": "top",
+   "patterns": [
+    "dislocation"
+   ]
+  },
+  "sheetResult": "Labral Tear - Shoulder"
+ }
+]
